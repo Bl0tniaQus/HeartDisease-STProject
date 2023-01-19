@@ -1,0 +1,256 @@
+*{
+margin:0;
+padding:0;
+}
+body{
+background-color:tomato;
+}
+a{
+text-decoration: none;
+list-style-type:none;
+}
+.menu_list{
+margin-top:20px;
+}
+.menu_list li{
+padding-top:8px;
+padding-bottom:8px;
+color:#cdcdcd;
+font-family:sans-serif;
+list-style-type:none;
+}
+
+#log{
+	font-weight:bold;
+	color:tomato;
+
+}
+
+
+.menu_list li:hover{
+	color: tomato;
+	transition-duration:0.5s;
+	margin-left:5px;
+}
+
+.navbar{
+background-color:272727;
+z-index:1;
+padding:20px;
+}
+
+.content{
+background-color:#121212;
+width:80%;
+margin:auto;
+
+min-height:800px;
+}
+.navbar span{
+
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+}
+
+
+.navbar input
+{
+
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: 15px;
+  left: 17px;
+  
+  cursor: pointer;
+  
+  opacity: 0; 
+  z-index: 2; 
+  
+
+}
+.navbar input:checked ~ .menu_list{
+display:none;
+
+transition-duration: 500ms;
+transition-property: margin-right;
+
+}
+.navbar input:checked ~ span{
+background-color:#cdcdcd;
+}
+.navbar input:not(checked) ~ span{
+background-color:tomato;
+}
+
+
+
+.footer{
+margin-top:20px;
+background-color:#272727;
+color:#cdcdcd;
+width:100%;
+position:fixed;
+bottom:0px;
+
+}
+
+
+.navbar input:hover ~ span{
+background-color:tomato;
+}
+
+
+
+
+.panel_logowania{
+	
+	padding-top:150px;
+	
+	
+}
+
+
+.panel_logowania input{
+	display:block;
+	margin:auto;
+	margin-top:25px;
+	padding:14px;
+	width:75%;
+	border-radius:8px;
+	outline:none;
+	border:none;
+	
+}
+.panel_logowania input:focus{
+	outline:2px solid tomato;
+	background-color:#ffcdbf;
+	border:none;
+	
+}
+.panel_logowania input:selection{
+	outline:2px solid tomato;
+	background-color:#ffcdbf;
+	border:none;
+	
+}
+
+.panel_logowania form .zaloguj_przycisk{
+	
+	font-family:Verdana;
+	background-color:tomato;
+	cursor:pointer;
+	margin-bottom:14px;
+}
+
+.panel_logowania form p{
+	font-size:24px;
+	font-family:verdana;
+	color:#cdcdcd;
+	text-align:center;
+	
+}
+.panel_logowania form .zarejestrujsie{
+	padding-top:14px;
+	font-size:12px;
+	
+}
+.panel_logowania form .rejhref{
+	
+	text-decoration:none;
+	color:tomato;
+}
+
+.panel_logowania form hr{
+	border:1px solid #121212;
+}
+
+
+
+.panel_logowania form{
+	
+	width:100%;
+	padding:0px;
+	
+	background-color:#272727;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:50px;
+	padding-bottom:50px;
+	
+	
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+.navbar input{
+display: none;
+}
+
+.navbar span{
+display: none;
+}
+.navbar input:checked ~ .menu_list{
+display: block;
+}
+
+.menu_list{
+margin-top:0px;
+ margin: auto;
+  width: 50%;
+
+}
+
+.navbar ul li{
+float:left;
+margin-left:20px;
+margin-right:20px;
+}
+.navbar ul{
+margin-top:-20px;
+
+}
+.menu_list li:hover{
+	color: tomato;
+	transition-duration:0.5s;
+	margin-left:20px;
+	scale:1.1;
+}
+#log:hover{
+scale:1.1;
+}
+
+
+.panel_logowania form{
+
+	background-color:#272727;
+	width:25%;
+	margin-left:auto;
+	margin-right:auto;
+	
+	padding:50px;
+	border-radius:10px;
+	
+}
+
+
+
+
+
+
+}
+
+
