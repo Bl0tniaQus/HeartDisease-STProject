@@ -1,0 +1,34 @@
+#1. wiek (29-79) -> (18-80)
+#2. płeć
+	0 - kobieta
+	1 - mężczyzna
+#3. typ bólu klatki piersiowej
+	0 - brak 
+	1 - typical angina
+	2 - atypical angina
+	3 - non-anginal pain
+	4 - asymptomatic
+#4. resting blood pressure(ciśnienie spoczynkowe skurczowe mmHg) (94-200) -> (90-200)
+5. cholesterol (LDL + HDL + 20%triglycerydy) (126-564) -> (120-600)
+6. poziom cukru we krwi na czczo (czy >120mg/dl)
+	1 - tak
+	2 - nie
+7. elektrokardiografia (EKG)
+	0 - normal
+	1 - anomalie fali ST-T
+	2 - hipertrofia (przerost lewej komory)
+8. maksymalne tempo bicia serca (w trakcie wysiłku) (70 -> 210)
+9. ból klatki piersiowej w trakcie wysiłku
+	0 - nie
+	1 - tak
+10. Różnica odcinka ST podczas spoczynku w stosunku do wysiłku
+11. Szczytowe nachylenie odcinka ST podczas wysiłku
+	1 - w górę
+	2 - płasko
+	3 - w dół
+12. ---------------------
+13. thalassemia
+	3 - brak
+	6 - brak przepływu krwi w niektórych miejscach
+	7 - nienormalny przepływ krwi
+
