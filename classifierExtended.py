@@ -16,16 +16,18 @@ temp = datat
 for row in range(temp.shape[0]):
 	maxv = max(temp[row])
 	minv = min(temp[row])
+	print([minv,maxv])
 	vec = []
 	for x in temp[row]:
 		xnorm = (norm_max - norm_min) * (x - minv) / (maxv - minv) + norm_min
 		vec.append(xnorm)
 	datat[row] = vec
 data = datat.transpose()
-
+print(data[10])
 network = MLPRegressor(hidden_layer_sizes=160, max_iter = 1000,activation = 'logistic')
 network.fit(data, target)
-result = network.predict(data)
+#result = network.predict(data)
+#result = network.predict([])
 temp = result
 result = []
 for v in temp:
