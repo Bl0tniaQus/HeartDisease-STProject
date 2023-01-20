@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<p>Test: {{test}}</p>
+		<table>
+			{{table|safe}}
+		</table>
+		{% if wynik !="Brak" %}
+		<p>Ryzyko wystąpienia choroby serca: {{wynik}}</p>
+		{% else	%}
+			<p>Niektóre z podanych danych są niestandardowe i nie znajdują odzwierciedlenia w danych testowych, co uniemożliwia otrzymanie rzetelnego wyniku. W przypadku rzeczywistego występowania takich wartości warto się bezzwłocznie skontaktować z lekarzem specjalistą </p>
+			<ul>
+				{{msg|safe}}
+			</ul>
+		{% endif %}
+	</body>
+</html>
