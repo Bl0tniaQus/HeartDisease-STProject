@@ -48,7 +48,7 @@ result = []
 for v in temp:
 	vnorm = (1 - 0) * (v-min(temp)) / (max(temp) - min(temp)) + 0
 	result.append(round(vnorm,3))
-
+joblib.dump([min(temp),max(temp)],'./static/boundssmp.ptk', compress=9)
 
 #diagnostyka modelu	
 confusion_matrix = [[0,0,0,0],[0,0,0,0]]
