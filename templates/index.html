@@ -23,134 +23,6 @@ color:#cdcdcd;
 font-family:sans-serif;
 list-style-type:none;
 }
-
-#log{
-	font-weight:bold;
-	color:tomato;
-
-}
-
-
-.menu_list li:hover{
-	color: tomato;
-	transition-duration:0.5s;
-	margin-left:5px;
-}
-
-.navbar{
-background-color:272727;
-z-index:1;
-padding:20px;
-}
-
-.content{
-background-color:#272727;
-width:80%;
-margin:auto;
-margin-top:20px;
-border-radius:8px;
-min-height:800px;
-}
-.navbar span{
-
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  background: #cdcdcd;
-  border-radius: 3px;
-}
-
-
-.navbar input
-{
-
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: 15px;
-  left: 17px;
-  
-  cursor: pointer;
-  
-  opacity: 0; 
-  z-index: 2; 
-  
-
-}
-.navbar input:checked ~ .menu_list{
-display:none;
-
-transition-duration: 500ms;
-transition-property: margin-right;
-
-}
-.navbar input:checked ~ span{
-background-color:#cdcdcd;
-}
-.navbar input:not(checked) ~ span{
-background-color:tomato;
-}
-
-
-
-.footer{
-margin-top:20px;
-background-color:#272727;
-color:#cdcdcd;
-width:100%;
-position:fixed;
-bottom:0px;
-
-}
-
-
-.navbar input:hover ~ span{
-background-color:tomato;
-}
-
-
-@media screen and (min-width: 768px) {
-.navbar input{
-display: none;
-}
-
-.navbar span{
-display: none;
-}
-.navbar input:checked ~ .menu_list{
-display: block;
-}
-
-.menu_list{
-margin-top:0px;
- margin: auto;
-  width: 50%;
-
-}
-
-.navbar ul li{
-float:left;
-margin-left:20px;
-margin-right:20px;
-}
-.navbar ul{
-margin-top:-20px;
-
-}
-.menu_list li:hover{
-	color: tomato;
-	transition-duration:0.5s;
-	margin-left:20px;
-	scale:1.1;
-}
-#log:hover{
-scale:1.1;
-}
-
-}
 </style>
 </head>
 <body>
@@ -166,6 +38,7 @@ scale:1.1;
       <a href="#"><li>Wyniki</li></a>
       <a href="#"><li>O nas</li></a>
 	  <a href="/login"><li id="log">Zaloguj się</li></a>
+	</ul>
 
   
 </div>
@@ -175,5 +48,5 @@ scale:1.1;
 
 <div class="footer">mikronapedy</div>
 
-<body>
+</body>
 </html>
