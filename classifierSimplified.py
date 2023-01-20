@@ -69,7 +69,7 @@ print(confusion_matrix[0])
 print(confusion_matrix[1])
 
 #eksport modelu
-joblib.dump(network, 'network_simplified.ptk', compress=9)
+joblib.dump(network, './static/network_simplified.ptk', compress=9)
 
 
 

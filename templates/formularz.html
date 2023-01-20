@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<a href="/">Główna</a>
+		
+		<form action="form_extended" method="post">
+			
+			Wiek: <input id="f1_wiek"type="number" min="1" name="wiek"/><br/>
+			Płeć: <select id="f1_plec" name="plec">
+				<option value="0">Mężczyzna</option>
+				<option value="1">Kobieta</option>
+			</select><br/>
+			Typ bólu klatki piersiowej: <select id="f1_bol" name="bol"><br/>
+				<option value="0">Brak</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				</select><br/>
+			Ból klatki w trakcie wysiłku<select id="f1_bolw" name="bolw">
+				<option value="1">Tak</option>
+				<option value="2">Nie</option>
+				</select><br/>
+			Maksymalne tempo bicia serca w trakcie wysiłku [bpm]<input id="f1_bicieserca" type="number" min="1" name="bicieserca" /><br/>
+			Ciśnienie spoczynkowe - skurczowe [mmHg]<input id="f1_cisnienie"type="number" min="0" name="cisnienie" /><br/>
+			Poziom cholesterolu całkowitego [mg/dl]<input id="f1_cholesterol" type="number" min="0" name="cholesterol" /><br/>
+			Poziom cukru we krwi na czczo:<select id="f1_cukier"name="cukier">
+				<option value="1">Powyżej 120md/dl</option>
+				<option value="2">Poniżej 120md/dl</option>
+				</select><br/>
+			Wynik EKG: <select id="f1_ekg" name="ekg">
+					<option value="0">W normie</option>
+					<option value="1">Anomalie fali ST-T</option>
+					<option value="2">Przerost lewej komory (Hipertrofia)</option>
+				</select><br/>
+			Różnice odcinka ST podczas spoczynku i podczas wysiłku<input id="f1_st" type="number" name="st" /><br/>
+			Nachylenie odcinka ST: <select id="f1_nachylenie" name="nachylenie">
+					<option value="1">W górę</option>
+					<option value="2">Płasko</option>
+					<option value="3">W dół</option>
+				</select><br/>
+			Talasemia: <select id="f1_talasemia" name="talasemia">
+					<option value="3">Brak</option>
+					<option value="6">Brak przepływu krwi w niektórych miejscach</option>
+					<option value="7">Ogólnie zaburzony przepływ krwi</option>
+				</select><br/>
+				<button type="submit" id="f1_submit" name="submit">Sprawdź</button>
+				<p>{{wynik}}</p>
+		</form>
+		
+	</body>
+</html>
