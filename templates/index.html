@@ -23,10 +23,10 @@ color:#cdcdcd;
 font-family:sans-serif;
 list-style-type:none;
 }
-
+</style>
 </head>
 <body>
-
+{% block content %}
 <div class="navbar"> 
 	<input type="checkbox" checked="unckecked" />   
     <span> </span>
@@ -37,7 +37,12 @@ list-style-type:none;
       <a href="#"><li>Formularz</li></a>
       <a href="#"><li>Wyniki</li></a>
       <a href="#"><li>O nas</li></a>
+      {% if session['login'] %}
+      <a href="#"><li id="log">{{session['login']}}</li></a>	  
+	  {% else %}
 	  <a href="/login"><li id="log">Zaloguj się</li></a>
+	  {% endif %}
+	</ul>
 
   
 </div>
@@ -46,6 +51,6 @@ list-style-type:none;
 </div>
 
 <div class="footer">mikronapedy</div>
-
-<body>
+{% endblock %}
+</body>
 </html>
