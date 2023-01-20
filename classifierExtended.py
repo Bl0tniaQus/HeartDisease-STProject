@@ -30,7 +30,10 @@ for row in range(temp.shape[0]):
 	elif row == 7:
 		minv = 70
 		maxv = 210
+	elif row==9:
+		maxv=6.5
 	vec = []
+	print([minv,maxv])
 	for x in temp[row]:
 		xnorm = (norm_max - norm_min) * (x - minv) / (maxv - minv) + norm_min
 		vec.append(xnorm)
@@ -47,8 +50,7 @@ temp = result
 result = []
 for v in temp:
 	vnorm = (1 - 0) * (v-min(temp)) / (max(temp) - min(temp)) + 0
-	result.append(round(vnorm,3))
-
+	joblib.dump([min(temp),max(temp)],'./static/boundsext.ptk', compress=9)
 #diagnostyka modelu		
 confusion_matrix = [[0,0,0,0],[0,0,0,0]]
 for i in range(len(result)):
@@ -68,7 +70,7 @@ print(confusion_matrix[0])
 print(confusion_matrix[1])
 
 #eksport modelu
-joblib.dump(network, 'network_extended.ptk', compress=9)
+joblib.dump(network, './static/network_extended.ptk', compress=9)
 
 
 
