@@ -1,6 +1,28 @@
 <html>
 <head>
-<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+<style>
+*{
+margin:0;
+padding:0;
+}
+body{
+background-color:tomato;
+}
+a{
+text-decoration: none;
+list-style-type:none;
+}
+.menu_list{
+margin-top:20px;
+}
+.menu_list li{
+padding-top:8px;
+padding-bottom:8px;
+color:#cdcdcd;
+font-family:sans-serif;
+list-style-type:none;
+}
 
 </head>
 <body>
@@ -11,11 +33,11 @@
     <span> </span>
     <span> </span>
     <ul class="menu_list">
-      <a href="#"><li>Strona glowna</li></a>
+      <a href="/"><li>Strona glowna</li></a>
       <a href="#"><li>Formularz</li></a>
       <a href="#"><li>Wyniki</li></a>
       <a href="#"><li>O nas</li></a>
-	  <a href="logowanie.html"><li id="log">Zaloguj się</li></a>
+	  <a href="/login"><li id="log">Zaloguj się</li></a>
 
   
 </div>
