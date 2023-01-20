@@ -19,7 +19,31 @@ def index():
 	return render_template("index.html")
     
 @app.route('/login')
-def login():
+def logowanie():
+	return render_template("logowanie.html")
+	
+@app.route('/logowanie_action', methods=["POST"])
+def logowanie_action():
+	if request.method == "POST":
+		login = request.form["login"]
+		haslo = request.form["haslo"]
+		msg=""
+		if login=="" or haslo=="":
+			msg = "Nie wszystkie pola zostały wypełnione"
+		else:
+			haslo = hashlib.sha256(haslo.encode('utf-8')).hexdigest()
+			dbConnection = dbConnect()
+			dbCursor = dbConnection.cursor()
+			dbCursor.execute("SELECT haslo FROM uzytkownik WHERE nazwa_uzytkownika = '{}'".format(login))
+			haslo2 = dbCursor.fetchall()
+			if len(haslo2)==0 or haslo!=haslo2[0][0]:
+				msg = "Niepoprawne dane logowania"
+			else:
+				session['login'] = login
+				print("zalogowano jako ",session['login'])
+				return render_template("index.html")
+		return render_template("logowanie.html", msg=msg)
+	
 	return render_template("logowanie.html")
 	
 @app.route('/rejestracja')
