@@ -1,0 +1,99 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<a href="/">Główna</a>
+		
+		<form action="form_extended" method="post">
+			
+			Wiek: <input id="f1_wiek"type="number" min="1" name="wiek"/><br/>
+			Płeć: <select id="f1_plec" name="plec">
+				<option value="0">Mężczyzna</option>
+				<option value="1">Kobieta</option>
+			</select><br/>
+			Typ bólu klatki piersiowej: <select id="f1_bol" name="bol"><br/>
+				<option value="0">Brak</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				</select><br/>
+			Ból klatki w trakcie wysiłku<select id="f1_bolw" name="bolw">
+				<option value="2">Nie</option>
+				<option value="1">Tak</option>
+				</select><br/>
+			Maksymalne tempo bicia serca w trakcie wysiłku [bpm]<input id="f1_bicieserca" type="number" min="1" name="bicieserca" /><br/>
+			Ciśnienie spoczynkowe - skurczowe [mmHg]<input id="f1_cisnienie"type="number" min="0" name="cisnienie" /><br/>
+			Poziom cholesterolu całkowitego [mg/dl]<input id="f1_cholesterol" type="number" min="0" name="cholesterol" /><br/>
+			Poziom cukru we krwi na czczo:<select id="f1_cukier"name="cukier">
+				<option value="1">Powyżej 120md/dl</option>
+				<option value="2">Poniżej 120md/dl</option>
+				</select><br/>
+			Wynik EKG: <select id="f1_ekg" name="ekg">
+					<option value="0">W normie</option>
+					<option value="1">Anomalie fali ST-T</option>
+					<option value="2">Przerost lewej komory (Hipertrofia)</option>
+				</select><br/>
+			Różnice odcinka ST podczas spoczynku i podczas wysiłku<input id="f1_st" type="number" name="st" /><br/>
+			Nachylenie odcinka ST: <select id="f1_nachylenie" name="nachylenie">
+					<option value="1">W górę</option>
+					<option value="2">Płasko</option>
+					<option value="3">W dół</option>
+				</select><br/>
+			Talasemia: <select id="f1_talasemia" name="talasemia">
+					<option value="3">Brak</option>
+					<option value="6">Brak przepływu krwi w niektórych miejscach</option>
+					<option value="7">Ogólnie zaburzony przepływ krwi</option>
+				</select><br/>
+				<button type="submit" id="f1_submit" name="submit">Sprawdź</button>
+		</form>
+		
+		
+		<form action="form_simplified" method="post">
+			
+			Wiek: <input id="f2_wiek"type="number" min="1" name="wiek"/><br/>
+			Płeć: <select id="f2_plec" name="plec">
+				<option value="0">Mężczyzna</option>
+				<option value="1">Kobieta</option>
+			</select><br/>
+			Typ bólu klatki piersiowej: <select id="f2_bol" name="bol"><br/>
+				<option value="0">Brak</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				</select><br/>
+			Ból klatki w trakcie wysiłku<select id="f2_bolw" name="bolw">
+				<option value="1">Tak</option>
+				<option value="2">Nie</option>
+				</select><br/>
+			Maksymalne tempo bicia serca w trakcie wysiłku [bpm]<select id="f2_bicieserca" name="bicieserca">
+					<option value="130">Obniżone</option>
+					<option value="160">W normie</option>
+					<option value="190">Podwyższone</option>
+				</select><br/>
+			Ciśnienie spoczynkowe - skurczowe [mmHg]<select id="f2_cisnienie" name="cisnienie">
+					<option value="95">Niskie</option>
+					<option value="105">Obniżone</option>
+					<option value="120">W normie</option>
+					<option value="140">Podwyższone</option>
+					<option value="160">Wysokie</option>
+					</select><br/>
+			Poziom cholesterolu całkowitego [mg/dl]<select id="f2_bicieserca" name="cholesterol">
+					<option value="120">Niski</option>
+					<option value="135">Obniżony</option>
+					<option value="155">W normie</option>
+					<option value="200">Podwyższony</option>
+					<option value="300">Wysoki</option>
+					</select><br/>
+			Poziom cukru we krwi na czczo:<select id="f2_cukier"name="cukier">
+				<option value="2">Obniżony</option>
+				<option value="1">Podwyższony</option>
+				</select><br/>
+				<button type="submit" id="f2_submit" name="submit">Sprawdź</button>
+		</form>
+		
+		
+	</body>
+</html>
