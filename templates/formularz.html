@@ -1,99 +1,197 @@
 <html>
-	<head>
-		<meta charset="utf-8"/>
-	</head>
-	<body>
-		<a href="/">Główna</a>
-		
-		<form action="form_extended" method="post">
-			
-			Wiek: <input id="f1_wiek"type="number" min="1" name="wiek"/><br/>
-			Płeć: <select id="f1_plec" name="plec">
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+<style>
+*{
+margin:0;
+padding:0;
+}
+body{
+background-color:tomato;
+}
+a{
+text-decoration: none;
+list-style-type:none;
+}
+.menu_list{
+margin-top:20px;
+}
+.menu_list li{
+padding-top:8px;
+padding-bottom:8px;
+color:#cdcdcd;
+font-family:sans-serif;
+list-style-type:none;
+}
+</style>
+<!-- href="https://www.flaticon.com/free-icons/health" title="health icons">Health icons created by Freepik - Flaticon -->
+</head>
+<body>
+{% block content %}
+<div class="navbar"> 
+	<input type="checkbox" checked="unckecked" />   
+    <span> </span>
+    <span> </span>
+    <span> </span>
+    <ul class="menu_list">
+      <a href="/"><li>Strona glowna</li></a>
+      <a href="#"><li>Formularz</li></a>
+      <a href="#"><li>Wyniki</li></a>
+      <a href="#"><li>O nas</li></a>
+      {% if session['login'] %}
+	  <a href="#" id="logs"><li id="log"><p style="color:tomato;">{{session['login']}}</p><ul class="submenu">
+	  <a href="/wyloguj" id="wylogujsie_przycisk"><li id="wylog">Wyloguj się</li></a>
+	  </ul>	</li></a>  
+
+	  {% else %}
+	  <a href="/login"><li id="log">Zaloguj się</li></a>
+	  {% endif %}
+	</ul>
+
+  
+</div>
+<div class="content">
+<img class="formimg" src="{{url_for('static', filename='health-check.png')}}" width="130px"  />
+<input type="radio" id="r2" checked="checked"  value="Wersja Rozszerzona" name="wersja" />
+      <label class="r" for="wybor name="wersja">Wersja Rozszerzona</label>
+
+      <input type="radio" id="r1" value="Wersja Podstawowa" name="wersja" />
+      <label class="r" for="wybor">Wersja Podstawowa</label>
+
+
+<form class="formularz" id="form1" action="form_extended" method="post">
+			<br/><br/>
+			<div class="atr">Wiek:</div></p> <input class="pola_formularza" id="f1_wiek"type="number" min="1" name="wiek"/><br/><br/><hr><br/>
+			<div class="atr">Płeć: </div> <select class="pola_formularza" id="f1_plec" name="plec">
 				<option value="0">Mężczyzna</option>
 				<option value="1">Kobieta</option>
-			</select><br/>
-			Typ bólu klatki piersiowej: <select id="f1_bol" name="bol"><br/>
+			</select><br/><br/><hr><br/>
+			<div class="atr">Typ bólu klatki piersiowej: </div> <select class="pola_formularza" id="f1_bol" name="bol"><br/><br/><hr><br/>
 				<option value="0">Brak</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
-				</select><br/>
-			Ból klatki w trakcie wysiłku<select id="f1_bolw" name="bolw">
+				</select><br/><br/><hr><br/>
+			<div class="atr">Ból klatki w trakcie wysiłku </div><select class="pola_formularza" id="f1_bolw" name="bolw">
 				<option value="2">Nie</option>
 				<option value="1">Tak</option>
-				</select><br/>
-			Maksymalne tempo bicia serca w trakcie wysiłku [bpm]<input id="f1_bicieserca" type="number" min="1" name="bicieserca" /><br/>
-			Ciśnienie spoczynkowe - skurczowe [mmHg]<input id="f1_cisnienie"type="number" min="0" name="cisnienie" /><br/>
-			Poziom cholesterolu całkowitego [mg/dl]<input id="f1_cholesterol" type="number" min="0" name="cholesterol" /><br/>
-			Poziom cukru we krwi na czczo:<select id="f1_cukier"name="cukier">
+				</select><br/><br/><hr><br/>
+			<div class="atr">Maksymalne tempo bicia serca w trakcie wysiłku [bpm] </div><input class="pola_formularza" id="f1_bicieserca" type="number" min="1" name="bicieserca" /><br/><br/><hr><br/>
+			<div class="atr">Ciśnienie spoczynkowe - skurczowe [mmHg] </div><input class="pola_formularza" id="f1_cisnienie"type="number" min="0" name="cisnienie" /><br/><br/><hr><br/>
+			<div class="atr">Poziom cholesterolu całkowitego [mg/dl] </div><input class="pola_formularza" id="f1_cholesterol" type="number" min="0" name="cholesterol" /><br/><br/><hr><br/>
+			<div class="atr">Poziom cukru we krwi na czczo: </div><select class="pola_formularza" id="f1_cukier"name="cukier">
 				<option value="1">Powyżej 120md/dl</option>
 				<option value="2">Poniżej 120md/dl</option>
-				</select><br/>
-			Wynik EKG: <select id="f1_ekg" name="ekg">
+				</select><br/><br/><hr><br/>
+			<div class="atr">Wynik EKG: </div> <select class="pola_formularza" id="f1_ekg" name="ekg">
 					<option value="0">W normie</option>
 					<option value="1">Anomalie fali ST-T</option>
 					<option value="2">Przerost lewej komory (Hipertrofia)</option>
-				</select><br/>
-			Różnice odcinka ST podczas spoczynku i podczas wysiłku<input id="f1_st" type="number" name="st" /><br/>
-			Nachylenie odcinka ST: <select id="f1_nachylenie" name="nachylenie">
+				</select><br/><br/><hr><br/>
+			<div class="atr">Różnice odcinka ST podczas spoczynku i podczas wysiłku </div><input class="pola_formularza" id="f1_st" type="number" name="st" /><br/><br/><hr><br/>
+			<div class="atr">Nachylenie odcinka ST: </div> <select class="pola_formularza" id="f1_nachylenie" name="nachylenie">
 					<option value="1">W górę</option>
 					<option value="2">Płasko</option>
 					<option value="3">W dół</option>
-				</select><br/>
-			Talasemia: <select id="f1_talasemia" name="talasemia">
+				</select><br/><br/><hr><br/>
+			<div class="atr">Talasemia: </div><select class="pola_formularza" id="f1_talasemia" name="talasemia">
 					<option value="3">Brak</option>
 					<option value="6">Brak przepływu krwi w niektórych miejscach</option>
 					<option value="7">Ogólnie zaburzony przepływ krwi</option>
-				</select><br/>
-				<button type="submit" id="f1_submit" name="submit">Sprawdź</button>
+				</select><br/><br/><hr><br/>
+				<button class="formularz_przycisk" type="submit" id="f1_submit" name="submit">Sprawdź</button>
 		</form>
 		
+	
 		
-		<form action="form_simplified" method="post">
-			
-			Wiek: <input id="f2_wiek"type="number" min="1" name="wiek"/><br/>
-			Płeć: <select id="f2_plec" name="plec">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+<form class="formularz" id="form2" action="form_simplified" method="post">
+			<br/><br/>
+			<div class="atr">Wiek: </div><input class="pola_formularza"  id="f2_wiek"type="number" min="1" name="wiek"/><br/>
+			<br/><br/><hr><br/>
+			<div class="atr">Płeć: </div><select class="pola_formularza"  id="f2_plec" name="plec">
 				<option value="0">Mężczyzna</option>
 				<option value="1">Kobieta</option>
 			</select><br/>
-			Typ bólu klatki piersiowej: <select id="f2_bol" name="bol"><br/>
+			<br/><br/><hr><br/>
+			<div class="atr">Typ bólu klatki piersiowej: </div><select  class="pola_formularza" id="f2_bol" name="bol"><br/>
 				<option value="0">Brak</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
 				</select><br/>
-			Ból klatki w trakcie wysiłku<select id="f2_bolw" name="bolw">
+			<br/><br/><hr><br/>
+			<div class="atr">Ból klatki w trakcie wysiłku</div><select class="pola_formularza" id="f2_bolw" name="bolw">
 				<option value="1">Tak</option>
 				<option value="2">Nie</option>
 				</select><br/>
-			Maksymalne tempo bicia serca w trakcie wysiłku [bpm]<select id="f2_bicieserca" name="bicieserca">
+			<br/><br/><hr><br/>
+			<div class="atr">Maksymalne tempo bicia serca w trakcie wysiłku [bpm]</div><select class="pola_formularza"  id="f2_bicieserca" name="bicieserca">
 					<option value="130">Obniżone</option>
 					<option value="160">W normie</option>
 					<option value="190">Podwyższone</option>
 				</select><br/>
-			Ciśnienie spoczynkowe - skurczowe [mmHg]<select id="f2_cisnienie" name="cisnienie">
+			<br/><br/><hr><br/>
+			<div class="atr">Ciśnienie spoczynkowe - skurczowe [mmHg]</div><select  class="pola_formularza" id="f2_cisnienie" name="cisnienie">
 					<option value="95">Niskie</option>
 					<option value="105">Obniżone</option>
 					<option value="120">W normie</option>
 					<option value="140">Podwyższone</option>
 					<option value="160">Wysokie</option>
 					</select><br/>
-			Poziom cholesterolu całkowitego [mg/dl]<select id="f2_bicieserca" name="cholesterol">
+			<br/><br/><hr><br/>
+			<div class="atr">Poziom cholesterolu całkowitego [mg/dl]</div><select class="pola_formularza"  id="f2_bicieserca" name="cholesterol">
 					<option value="120">Niski</option>
 					<option value="135">Obniżony</option>
 					<option value="155">W normie</option>
 					<option value="200">Podwyższony</option>
 					<option value="300">Wysoki</option>
 					</select><br/>
-			Poziom cukru we krwi na czczo:<select id="f2_cukier"name="cukier">
+			<br/><br/><hr><br/>
+			<div class="atr">Poziom cukru we krwi na czczo:</div><select class="pola_formularza"  id="f2_cukier"name="cukier">
 				<option value="2">Obniżony</option>
 				<option value="1">Podwyższony</option>
 				</select><br/>
-				<button type="submit" id="f2_submit" name="submit">Sprawdź</button>
+				<button class="formularz_przycisk" type="submit" id="f2_submit" name="submit">Sprawdź</button>
 		</form>
-		
-		
-	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer">mikronapedy</div>
+{% endblock %}
+</body>
 </html>
