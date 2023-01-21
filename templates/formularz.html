@@ -24,6 +24,7 @@ font-family:sans-serif;
 list-style-type:none;
 }
 </style>
+<!--<a href="https://www.flaticon.com/free-icons/question-mark" title="question mark icons">Question mark icons created by Freepik - Flaticon</a>-->
 <!-- href="https://www.flaticon.com/free-icons/health" title="health icons">Health icons created by Freepik - Flaticon -->
 </head>
 <body>
@@ -61,41 +62,53 @@ list-style-type:none;
 
 <form class="formularz" id="form1" action="form_extended" method="post">
 			<br/><br/>
-			<div class="atr">Wiek:</div></p> <input class="pola_formularza" id="f1_wiek"type="number" min="1" name="wiek"/><br/><br/><hr><br/>
-			<div class="atr">Płeć: </div> <select class="pola_formularza" id="f1_plec" name="plec">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>
+			Wiek:</p></div> <input class="pola_formularza" id="f1_wiek"type="number" min="1" name="wiek"/><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Płeć: </p></div> <select class="pola_formularza" id="f1_plec" name="plec">
 				<option value="0">Mężczyzna</option>
 				<option value="1">Kobieta</option>
 			</select><br/><br/><hr><br/>
-			<div class="atr">Typ bólu klatki piersiowej: </div> <select class="pola_formularza" id="f1_bol" name="bol"><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Typ bólu klatki piersiowej: </p></div> <select class="pola_formularza" id="f1_bol" name="bol"><br/><br/><hr><br/>
 				<option value="0">Brak</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
 				</select><br/><br/><hr><br/>
-			<div class="atr">Ból klatki w trakcie wysiłku </div><select class="pola_formularza" id="f1_bolw" name="bolw">
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Ból klatki w trakcie wysiłku </p></div><select class="pola_formularza" id="f1_bolw" name="bolw">
 				<option value="2">Nie</option>
 				<option value="1">Tak</option>
 				</select><br/><br/><hr><br/>
-			<div class="atr">Maksymalne tempo bicia serca w trakcie wysiłku [bpm] </div><input class="pola_formularza" id="f1_bicieserca" type="number" min="1" name="bicieserca" /><br/><br/><hr><br/>
-			<div class="atr">Ciśnienie spoczynkowe - skurczowe [mmHg] </div><input class="pola_formularza" id="f1_cisnienie"type="number" min="0" name="cisnienie" /><br/><br/><hr><br/>
-			<div class="atr">Poziom cholesterolu całkowitego [mg/dl] </div><input class="pola_formularza" id="f1_cholesterol" type="number" min="0" name="cholesterol" /><br/><br/><hr><br/>
-			<div class="atr">Poziom cukru we krwi na czczo: </div><select class="pola_formularza" id="f1_cukier"name="cukier">
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Maksymalne tempo bicia serca w trakcie wysiłku [bpm]</p> </div><input class="pola_formularza" id="f1_bicieserca" type="number" min="1" name="bicieserca" /><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Ciśnienie spoczynkowe - skurczowe [mmHg] </p></div><input class="pola_formularza" id="f1_cisnienie"type="number" min="0" name="cisnienie" /><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Poziom cholesterolu całkowitego [mg/dl]</p> </div><input class="pola_formularza" id="f1_cholesterol" type="number" min="0" name="cholesterol" /><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Poziom cukru we krwi na czczo:</p> </div><select class="pola_formularza" id="f1_cukier"name="cukier">
 				<option value="1">Powyżej 120md/dl</option>
 				<option value="2">Poniżej 120md/dl</option>
 				</select><br/><br/><hr><br/>
-			<div class="atr">Wynik EKG: </div> <select class="pola_formularza" id="f1_ekg" name="ekg">
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Wynik EKG:</p> </div> <select class="pola_formularza" id="f1_ekg" name="ekg">
 					<option value="0">W normie</option>
 					<option value="1">Anomalie fali ST-T</option>
 					<option value="2">Przerost lewej komory (Hipertrofia)</option>
 				</select><br/><br/><hr><br/>
-			<div class="atr">Różnice odcinka ST podczas spoczynku i podczas wysiłku </div><input class="pola_formularza" id="f1_st" type="number" name="st" /><br/><br/><hr><br/>
-			<div class="atr">Nachylenie odcinka ST: </div> <select class="pola_formularza" id="f1_nachylenie" name="nachylenie">
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Różnice odcinka ST podczas spoczynku i podczas wysiłku</p> </div><input class="pola_formularza" id="f1_st" type="number" name="st" /><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Nachylenie odcinka ST:</p> </div> <select class="pola_formularza" id="f1_nachylenie" name="nachylenie">
 					<option value="1">W górę</option>
 					<option value="2">Płasko</option>
 					<option value="3">W dół</option>
 				</select><br/><br/><hr><br/>
-			<div class="atr">Talasemia: </div><select class="pola_formularza" id="f1_talasemia" name="talasemia">
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Talasemia:</p> </div><select class="pola_formularza" id="f1_talasemia" name="talasemia">
 					<option value="3">Brak</option>
 					<option value="6">Brak przepływu krwi w niektórych miejscach</option>
 					<option value="7">Ogólnie zaburzony przepływ krwi</option>
@@ -116,8 +129,47 @@ list-style-type:none;
 
 
 
+<form class="formularz" id="form2" action="form_simplified" method="post">
+			<br/><br/>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>
+			Wiek:</p></div> <input class="pola_formularza" id="f1_wiek"type="number" min="1" name="wiek"/><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Płeć: </p></div> <select class="pola_formularza" id="f1_plec" name="plec">
+				<option value="0">Mężczyzna</option>
+				<option value="1">Kobieta</option>
+			</select><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Typ bólu klatki piersiowej: </p></div> <select class="pola_formularza" id="f1_bol" name="bol"><br/><br/><hr><br/>
+				<option value="0">Brak</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				</select><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Ból klatki w trakcie wysiłku </p></div><select class="pola_formularza" id="f1_bolw" name="bolw">
+				<option value="2">Nie</option>
+				<option value="1">Tak</option>
+				</select><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Maksymalne tempo bicia serca w trakcie wysiłku [bpm]</p> </div><input class="pola_formularza" id="f1_bicieserca" type="number" min="1" name="bicieserca" /><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Ciśnienie spoczynkowe - skurczowe [mmHg] </p></div><input class="pola_formularza" id="f1_cisnienie"type="number" min="0" name="cisnienie" /><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Poziom cholesterolu całkowitego [mg/dl]</p> </div><input class="pola_formularza" id="f1_cholesterol" type="number" min="0" name="cholesterol" /><br/><br/><hr><br/>
+			
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Poziom cukru we krwi na czczo:</p> </div><select class="pola_formularza" id="f1_cukier"name="cukier">
+				<option value="1">Powyżej 120md/dl</option>
+				<option value="2">Poniżej 120md/dl</option>
+				</select><br/><br/><hr><br/>
+			
+			
+				<button class="formularz_przycisk" type="submit" id="f1_submit" name="submit">Sprawdź</button>
+		</form>
 
 
+
+<!--
 <form class="formularz" id="form2" action="form_simplified" method="post">
 			<br/><br/>
 			<div class="atr">Wiek: </div><input class="pola_formularza"  id="f2_wiek"type="number" min="1" name="wiek"/><br/>
@@ -169,7 +221,7 @@ list-style-type:none;
 				<button class="formularz_przycisk" type="submit" id="f2_submit" name="submit">Sprawdź</button>
 		</form>
 
-
+-->
 
 
 
