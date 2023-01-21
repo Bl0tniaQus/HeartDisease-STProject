@@ -47,13 +47,13 @@ def logowanie_action():
 			haslo = hashlib.sha256(haslo.encode('utf-8')).hexdigest()
 			dbConnection = dbConnect()
 			dbCursor = dbConnection.cursor()
-			dbCursor.execute("SELECT haslo FROM uzytkownik WHERE nazwa_uzytkownika = '{}'".format(login))
+			dbCursor.execute("SELECT id_uzytkownika, haslo FROM uzytkownik WHERE nazwa_uzytkownika = '{}'".format(login))
 			haslo2 = dbCursor.fetchall()
-			if len(haslo2)==0 or haslo!=haslo2[0][0]:
+			if len(haslo2)==0 or haslo!=haslo2[0][1]:
 				msg = "Niepoprawne dane logowania"
 			else:
 				session['login'] = login
-				print("zalogowano jako ",session['login'])
+				session['userid'] = haslo2[0][0]
 				return redirect("/")
 		return render_template("logowanie.html", msg=msg)	
 	return render_template("logowanie.html")
@@ -85,7 +85,7 @@ def rejestracja_action():
 				msg = "Istnieje już użytkownik o podanej nazwie"
 			else:
 				haslo = hashlib.sha256(haslo.encode('utf-8')).hexdigest()
-				dbCursor.execute("INSERT INTO uzytkownik VALUES (default, '{}', '{}', 0);".format(login,haslo))
+				dbCursor.execute("INSERT INTO uzytkownik VALUES (default, '{}', '{}', CURRENT_DATE);".format(login,haslo))
 				dbConnection.commit()
 				msg = "Konto utworzone prawidłowo"
 			dbCursor.close()
@@ -101,10 +101,10 @@ def wyloguj():
 def form_extended():
 	if request.method == "POST":
 		dane = [None]*12
+		dane_pokazowe = [None] * 12
 		err=False
 		msg = ""
 		wynik="Brak"
-		test = "rozszerzony"
 		
 		if request.form['plec'] == "0":
 			plec = "Kobieta"
@@ -154,18 +154,19 @@ def form_extended():
 			talasemia = "Ogólna niedokrwistość"
 		
 		
-
+		
 		table = "<tr><td>Wiek: {}</td><td>Płeć: {}</td></tr>".format(request.form['wiek'], plec)
 		table = table + "<tr><td>Ból klatki: {}</td><td>Ból klatki podczas wysiłku: {}</td></tr>".format(bol,bolw)
 		table = table + "<tr><td>Wynik EKG: {}</td><td>Ciśnienie spoczynkowe: {}mmHg</td></tr>".format(ekg,int(request.form['cisnienie']))
 		table = table + "<tr><td>Nachylenie ST: {}</td><td>Cholesterol całkowity: {}mg/dl</td></tr>".format(nachylenie,int(request.form['cholesterol']))
 		table = table + "<tr><td>Różnica ST spoczynek/wysiłek: {}</td><td>Poziom cukru we krwi: {}</td></tr>".format(float(request.form['st']),cukier)
 		table = table + "<tr><td>Talasemia: {}</td><td>Bicie serca (wysiłek): {}bpm</td></tr>".format(talasemia,int(request.form['bicieserca']))
+		
 		if int(request.form["wiek"])<18:
 			msg+="<li>Podany wiek wynosi {} lat. Mając w takim wieku jakiekolwiek wątpliwości co do swojego stanu zdrowia zdecydowanie nie powinno się ich ignorować</li>".format(int(request.form["wiek"]))
 			err=True
 		if int(request.form["wiek"])>80:
-			msg+="<li>Podany wiek wynosi {} lat. W takim wieku problemy zdrowotne mogą mieć bardzo dużo różnych źródeł, dlatego otrzymany naszego wynik mógłby być mylący</li>".format(int(request.form["wiek"]))
+			msg+="<li>Podany wiek wynosi {} lat. W takim wieku problemy zdrowotne mogą mieć bardzo dużo różnych źródeł, dlatego otrzymany wynik naszego testu mógłby być mylący</li>".format(int(request.form["wiek"]))
 			err=True
 		if int(request.form["cisnienie"])<94:
 			msg+="<li>Ciśnienie skurczowe krwi w wysokości {} mmHg jest bardzo niską, niebezpieczną dla zdrowia wartością</li>".format(int(request.form["cisnienie"]))
@@ -202,9 +203,8 @@ def form_extended():
 			dane[9] = normalizuj(0,6.5,request.form["st"])
 			dane[10] = normalizuj(1,3,request.form["nachylenie"])
 			dane[11] = normalizuj(3,7,request.form["talasemia"])
-			
 			network = joblib.load('static/network_extended.ptk')
-			bresult = network.predict([dane])
+			result = network.predict([dane])
 			if result>=0 and result<0.25:
 				wynik = "Niskie"
 			if result>=0.25 and result<0.50:
@@ -213,7 +213,8 @@ def form_extended():
 				wynik = "Duże"
 			if result>=0.75 and result<=1:
 				wynik = "Bardzo duże"
-		return render_template("wynik.html", msg=msg, wynik=wynik,test=test, table=table)
+		table = "<tr><td>Test rozszerzony</td><td><Wynik testu: {}/td></tr>".format(wynik) + table
+		return render_template("wynik.html", msg=msg,table=table, wynik=wynik)
 	return redirect("/form")
 	
 @app.route('/form_simplified', methods=["POST"])
@@ -223,7 +224,6 @@ def form_simplified():
 		err=False
 		msg = ""
 		wynik="Brak"
-		test = "uproszczony"
 		
 		if request.form['plec'] == "0":
 			plec = "Kobieta"
@@ -285,10 +285,38 @@ def form_simplified():
 				wynik = "Duże"
 			if result>=0.75 and result<=1:
 				wynik = "Bardzo duże"
-		return render_template("wynik.html", msg=msg, wynik=wynik,test=test, table=table)
+		table = "<tr><td>Test podstawowy</td><td><Wynik testu: {}/td></tr>".format(wynik) + table
+		return render_template("wynik.html", msg=msg, wynik=wynik,table=table)
 	return redirect("/form")	
-		
+@app.route('/dodaj_wynik', methods=["POST"])
+def dodaj_wynik():
+	if request.method == "POST" and 'userid' in session:
+		tytul = request.form["tytul"]
+		opis = request.form["opis"]
+		tresc = request.form["tresc"]
+		userid = request.form['userid']
+		dbConnection = dbConnect()
+		dbCursor = dbConnection.cursor()
+		dbCursor.execute("INSERT INTO wynik VALUES (default, {}, '{}', '{}', '{}', CURRENT_DATE)".format(int(userid), tytul, opis, tresc))
+		dbConnection.commit()
+		dbCursor.close()
+		dbConnection.close()
+	return redirect("/")		
+
+@app.route('/wyniki')
+def wyniki():
 	
+	if 'login' in session:
+		
+		dbConnection = dbConnect()
+		dbCursor = dbConnection.cursor()
+		dbCursor.execute("SELECT * FROM wynik WHERE wynik_id_uzytkownika = {} ORDER BY data_dodania DESC".format(session['userid']))
+		wyniki = dbCursor.fetchall()
+		dbCursor.close()
+		dbConnection.close()
+		return render_template("wyniki_uzytkownika.html", wyniki = wyniki, dl = len(wyniki))
+	return redirect("/")
+
 if __name__ == "__main__":
     app.run(debug=True)
 
