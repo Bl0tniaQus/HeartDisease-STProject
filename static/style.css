@@ -1,4 +1,5 @@
-html, body { height: 100% }
+html{height:100%;}
+body{height:100%;}
 *{
 margin:0;
 padding:0;
@@ -51,7 +52,9 @@ background-color:#121212;
 width:80%;
 margin:auto;
 
-min-height:900px;
+height:87%;
+overflow: hidden;
+
 }
 .navbar span{
 
@@ -60,7 +63,7 @@ min-height:900px;
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: #cdcdcd;
+  background: tomato;
   border-radius: 3px;
 }
 
@@ -90,10 +93,10 @@ transition-property: margin-right;
 
 }
 .navbar input:checked ~ span{
-background-color:#cdcdcd;
+background-color:tomato;
 }
 .navbar input:not(checked) ~ span{
-background-color:tomato;
+background-color:#cdcdcd;
 }
 
 
@@ -105,12 +108,12 @@ color:#cdcdcd;
 width:100%;
 position:fixed;
 bottom:0px;
-
+padding-top:0;
 }
 
 
 .navbar input:hover ~ span{
-background-color:tomato;
+background-color:#cdcdcd;
 }
 
 
@@ -199,6 +202,7 @@ background-color:tomato;
 	display:none;
 }
 #wylog{
+	position:absolute;
 	background-color:#272727;
 	width:170px;
 	margin-left:-10px;
@@ -241,6 +245,7 @@ padding-top:0;
 	border:none;
 	background-color:tomato;
 	cursor:pointer;
+	text-align:center;
 }
 .formularz_przycisk:focus{
 	outline:2px solid tomato;
@@ -369,13 +374,14 @@ hr{
 
 
 th, td {
-  border: 1px solid white;
+  border: 2px solid #ff6347;
+  padding:5px;
 }
 
 
 table{
 	margin-top:40px;
-	 border: 1px solid white;
+	 border: 2px solid #ff6347;
 	 border-collapse: collapse;
 	 margin-left:auto;
 	 margin-right:auto;
@@ -401,16 +407,45 @@ table{
 }
 
 
+.lewywynik{
+	width:25%;
+	float:left;
+	margin-top:20px;
+	height:88%;
+	overflow: auto;
+		
 
+	
+	
+	
+}
+.prawywynik{
+	width:74%;
+	float:right;
+		
 
+	
+}
 
+#wynikitext{
+	color:tomato;
+	padding-bottom:0px;
+	text-align:center;
+}
+.lewywynik{float:none;width:100%;height:200px;color:#scdcdcd;border: 1px solid tomato;padding-bottom:5px;}
 
+.prawywynik{float:none;width:100%;}
 
 
 
 
 
 @media screen and (min-width: 854px) {
+	#wynikitext{
+	color:tomato;
+	padding-bottom:40px;
+	text-align:center;
+}
 	#r2{
 		margin-left:0%;
 	}
@@ -501,7 +536,9 @@ margin-top:-20px;
 }
 #log:hover{
 scale:1.1;
+
 }
+
 
 
 .panel_logowania form{
@@ -529,7 +566,7 @@ span{
 }
 .content{
 		padding-top:50px;
-		
+		height:89%;
 	}
 	
 	
@@ -542,15 +579,42 @@ span{
 .p{
 	
 	float:left;
+}
+
+
+.lewywynik{
+	width:25%;
+	float:left;
+	margin-top:20px;
+	height:88%;
+	overflow: auto;
+		border:none;
+
+	
+	
+	
+}
+.prawywynik{
+	width:74%;
+	float:right;
+		
+
+	
+}
 	
 }
 
-	
 
-	
+
+
 }
-
 @media (min-width:854px) and (max-width:1320px) {
+	
+	#wynikitext{
+	color:tomato;
+	padding-bottom:40px;
+	text-align:center;
+}
 	#r2{
 		margin-left:32%;
 		
@@ -624,7 +688,25 @@ hr{
 	
 }
 	
+	.lewywynik{
+	width:25%;
+	float:left;
+	margin-top:20px;
+	height:88%;
+	overflow: auto;
+		
+
 	
+	
+	
+}
+.prawywynik{
+	width:74%;
+	float:right;
+		
+
+	
+}
 }​
 
 
