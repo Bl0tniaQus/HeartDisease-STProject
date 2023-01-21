@@ -213,7 +213,7 @@ def form_extended():
 				wynik = "Duże"
 			if result>=0.75 and result<=1:
 				wynik = "Bardzo duże"
-		table = "<tr><td>Test rozszerzony</td><td><Wynik testu: {}/td></tr>".format(wynik) + table
+		table = "<tr><td>Test rozszerzony</td><td>Ryzyko choroby: {}</td></tr>".format(wynik) + table
 		return render_template("wynik.html", msg=msg,table=table, wynik=wynik)
 	return redirect("/form")
 	
@@ -285,7 +285,7 @@ def form_simplified():
 				wynik = "Duże"
 			if result>=0.75 and result<=1:
 				wynik = "Bardzo duże"
-		table = "<tr><td>Test podstawowy</td><td><Wynik testu: {}/td></tr>".format(wynik) + table
+		table = "<tr><td>Test podstawowy</td><td>Ryzyko choroby: {}</td></tr>".format(wynik) + table
 		return render_template("wynik.html", msg=msg, wynik=wynik,table=table)
 	return redirect("/form")	
 @app.route('/dodaj_wynik', methods=["POST"])
