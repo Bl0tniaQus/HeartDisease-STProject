@@ -204,10 +204,7 @@ def form_extended():
 			dane[11] = normalizuj(3,7,request.form["talasemia"])
 			
 			network = joblib.load('static/network_extended.ptk')
-			bounds = joblib.load('static/boundsext.ptk')
-		
-			result = normalizuj(bounds[0],bounds[1],network.predict([dane]),0,1)
-			print(result)
+			bresult = network.predict([dane])
 			if result>=0 and result<0.25:
 				wynik = "Niskie"
 			if result>=0.25 and result<0.50:
@@ -232,7 +229,6 @@ def form_simplified():
 			plec = "Kobieta"
 		else:
 			plec = "Mężczyzna"
-			
 		if request.form['bol']=="0":
 			bol = "Brak"
 		elif request.form['bol']=="1":
@@ -279,10 +275,8 @@ def form_simplified():
 			dane[7] = normalizuj(0,1,request.form["bolw"])
 
 			network = joblib.load('static/network_simplified.ptk')
-			bounds = joblib.load('static/boundssmp.ptk')
-		
-			result = normalizuj(bounds[0],bounds[1],network.predict([dane]),0,1)
-			print(result)
+			result = network.predict([dane])
+			
 			if result>=0 and result<0.25:
 				wynik = "Niskie"
 			if result>=0.25 and result<0.50:

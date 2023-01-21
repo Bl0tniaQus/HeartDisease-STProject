@@ -38,17 +38,22 @@ for row in range(temp.shape[0]):
 data = datat.transpose()
 
 #sieć neuronowa
-network = MLPRegressor(hidden_layer_sizes=155, max_iter = 3000,activation = 'logistic', learning_rate='adaptive', solver = 'adam')
+network = MLPRegressor()
+network._old_initialize=network._initialize
+def _initialize(self, y, layer_units, dtype):
+    self._old_initialize(y, layer_units, dtype)
+    self.out_activation_="logistic" 
+network._initialize = _initialize.__get__(network)
+network.hidden_layer_sizes=155
+network.max_iter = 300
+network.activation = 'logistic'
+network.learning_rate = 'adaptive'
+network.solver = "adam"
 network.fit(data, target)
 result = network.predict(data)
 
-#normalizacja wyniku do przedziału <0,1>
-temp = result
-result = []
-for v in temp:
-	vnorm = (1 - 0) * (v-min(temp)) / (max(temp) - min(temp)) + 0
-	result.append(round(vnorm,3))
-joblib.dump([min(temp),max(temp)],'./static/boundssmp.ptk', compress=9)
+
+
 
 #diagnostyka modelu	
 confusion_matrix = [[0,0,0,0],[0,0,0,0]]
