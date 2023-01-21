@@ -4,17 +4,25 @@
 	</head>
 	<body>
 		<a href="/">Główna</a>
-		<p>Test: {{test}}</p>
 		<table>
 			{{table|safe}}
 		</table>
 		{% if wynik !="Brak" %}
-		<p>Ryzyko wystąpienia choroby serca: {{wynik}}</p>
 		{% else	%}
-			<p>Niektóre z podanych danych są niestandardowe i nie znajdują odzwierciedlenia w danych testowych, co uniemożliwia otrzymanie rzetelnego wyniku. W przypadku rzeczywistego występowania takich wartości warto się bezzwłocznie skontaktować z lekarzem specjalistą </p>
+			<p>Niektóre z podanych danych są niestandardowe i nie znajdują odzwierciedlenia w danych testowych, co uniemożliwia otrzymanie rzetelnego wyniku. W przypadku rzeczywistego występowania takich wartości warto się bezzwłocznie skontaktować z lekarzem specjalistą.</p>
 			<ul>
 				{{msg|safe}}
 			</ul>
+		{% endif %}
+		
+		{% if session['login'] %}
+		<form action="/dodaj_wynik" method="post">
+		<table>
+		<tr><td>Tytuł: <input type="text" max="25" name="tytul" required/></td><td rowspan="2"><button type="submit">Zapisz</td></tr>
+		<tr><td>Opis: <textarea maxlength="300"></textarea></td></tr>		
+		</table>
+		{% else %}
+		<p>Będąc <a href="/login">zalogowanym</a> możliwe jest zapisywanie otrzymanych rezultatów</p>
 		{% endif %}
 		
 		
