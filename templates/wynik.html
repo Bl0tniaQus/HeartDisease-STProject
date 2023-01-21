@@ -60,13 +60,16 @@ list-style-type:none;
 		</table>
 		{% if wynik !="Brak" %}
 		{% else	%}
+
 			<p class="wyniki" style="color:tomato;">Niektóre z podanych danych są niestandardowe i nie znajdują odzwierciedlenia w danych testowych, co uniemożliwia otrzymanie rzetelnego wyniku. W przypadku rzeczywistego występowania takich wartości warto się bezzwłocznie skontaktować z lekarzem specjalistą.</p>
 			<ul class = "tabela_wynikow" style="margin-right:auto;margin-left:auto;">
+
 				{{msg|safe}}
 			</ul>
 		{% endif %}
 		
 		{% if session['login'] %}
+
 		<form action="/dodaj_wynik" method="post" class="dodwynikform">
 		
 		<p class="wyniki" style="color:#cdcdcd;">Tytuł: </p><input type="text" max="25" style="margin-left:10%;" name="tytul" required/>
