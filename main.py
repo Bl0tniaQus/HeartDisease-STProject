@@ -291,8 +291,8 @@ def form_simplified():
 @app.route('/dodaj_wynik', methods=["POST"])
 def dodaj_wynik():
 	if request.method == "POST" and 'userid' in session:
-		tytul = request.form["tytul"]
-		opis = request.form["opis"]
+		tytul = request.form["tytul"][0:29]
+		opis = request.form["opis"][0:249]
 		tresc = request.form["tresc"]
 		userid = request.form['userid']
 		dbConnection = dbConnect()
@@ -329,7 +329,29 @@ def usun_wpis():
 		dbConnection.close()
 		return redirect("/wyniki")
 	return redirect("/")	
-		
+@app.route("/profil")		
+def profil():
+	dbConnection = dbConnect()
+	dbCursor = dbConnection.cursor()
+	dbCursor.execute("SELECT data_dolaczenia FROM uzytkownik WHERE id_uzytkownika = {}".format(session['userid']))
+	data_dolaczenia = dbCursor.fetchall()[0][0]
+	dbCursor.execute("SELECT count(*) FROM wynik WHERE wynik_id_uzytkownika = {}".format(session['userid']))
+	count = dbCursor.fetchall()[0][0]
+	dbCursor.close()
+	dbConnection.close()
+	return render_template("profil.html", data_dolaczenia=data_dolaczenia, count=count)
+@app.route("/usun_konto", methods=["POST"])
+def usun_konto():
+	if 'userid' in session and request.method == "POST":
+		dbConnection = dbConnect()
+		dbCursor = dbConnection.cursor()
+		dbCursor.execute("DELETE FROM wynik WHERE wynik_id_uzytkownika = {}".format(int(session['userid'])))
+		dbCursor.execute("DELETE FROM uzytkownik WHERE id_uzytkownika = {}".format(int(session['userid'])))
+		dbConnection.commit()
+		dbCursor.close()
+		dbConnection.close()
+		return redirect("/wyloguj")
+	return redirect("/")
 
 if __name__ == "__main__":
     app.run(debug=True)

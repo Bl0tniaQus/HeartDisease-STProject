@@ -6,12 +6,12 @@ function setClick(options, divs)
 {
 	options.forEach(option => option.onclick = function(){
 		clear(divs)
-		id = this.id.split('_');
+		let id = this.id.split('_');
 		document.querySelector("#contentw_"+id[1]).style.display = "block";
 		});
 }
-divs = document.querySelectorAll("div[id^=contentw_]");
-options = document.querySelectorAll("li[id^=wynik_]");
+var divs = document.querySelectorAll("div[id^=contentw_]");
+var options = document.querySelectorAll("li[id^=wynik_]");
 clear(divs);
 setClick(options,divs);
 

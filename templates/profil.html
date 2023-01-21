@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<a href="/">Główna</a>
+		<div>Profil użytkownika {{session['login']}}</div>
+		<div>
+		
+		Konto założone: {{data_dolaczenia}}	
+		Zapisanych wyników: {{count}}
+		
+		<table>
+			<tr>
+			
+				<td>
+					<form action = "zmiana_hasla" action="post">
+						<input type="password" name="haslo_stare" />
+						<input type="password" name="haslo_nowe" />
+						<input type="password" name="haslo_nowe2" />
+						<button type="submit">Zmień hasło</button>
+						<p>{{haslo_msg}}</p>
+					</form>
+									
+				</td>
+				<td>
+				<form action="usun_konto" method="post">
+				<button type="button"  id="usunkonto" tyle="display:block;">Usuń konto</button>
+				<button type="submit"  id="usunkonto2" style="display:none;">Usuń konto</button>
+				</form>
+				<p id="potwierdzenie_usuniecia"></p>
+				
+				</td>
+			</tr>
+		</table>
+		</div>
+	</body>
+</html>
+
+<script src="{{ url_for('static', filename='usunkonto.js') }}"></script>
