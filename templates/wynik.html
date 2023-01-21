@@ -17,9 +17,11 @@
 		
 		{% if session['login'] %}
 		<form action="/dodaj_wynik" method="post">
+			<input type="hidden" value ="{{table}}" name="tresc"/>
+			<input type="hidden" value ="{{session['userid']}}" name="userid"/>
 		<table>
 		<tr><td>Tytuł: <input type="text" max="25" name="tytul" required/></td><td rowspan="2"><button type="submit">Zapisz</td></tr>
-		<tr><td>Opis: <textarea maxlength="300"></textarea></td></tr>		
+		<tr><td>Uwagi: <textarea maxlength="300" name="opis"></textarea></td></tr>		
 		</table>
 		{% else %}
 		<p>Będąc <a href="/login">zalogowanym</a> możliwe jest zapisywanie otrzymanych rezultatów</p>
