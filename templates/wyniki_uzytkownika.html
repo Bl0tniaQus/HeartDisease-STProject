@@ -1,27 +1,99 @@
 <html>
-	<head>
-		<meta charset="utf-8"/>
-	</head>
-	<body>
-		<a href="/">Główna</a>
-		<ul>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+<style>
+*{
+margin:0;
+padding:0;
+}
+body{
+background-color:tomato;
+}
+a{
+text-decoration: none;
+list-style-type:none;
+}
+.menu_list{
+margin-top:20px;
+}
+.menu_list li{
+padding-top:8px;
+padding-bottom:8px;
+color:#cdcdcd;
+font-family:sans-serif;
+list-style-type:none;
+}
+</style>
+</head>
+<body>
+{% block content %}
+<div class="navbar"> 
+	<input type="checkbox" checked="unckecked" />   
+    <span> </span>
+    <span> </span>
+    <span> </span>
+    <ul class="menu_list">
+      <a href="/"><li>Strona glowna</li></a>
+      <a href="#"><li>Formularz</li></a>
+      <a href="#"><li>Wyniki</li></a>
+      <a href="#"><li>O nas</li></a>
+      {% if session['login'] %}
+	  <a href="#" id="logs"><li id="log"><p style="color:tomato;">{{session['login']}}</p><ul class="submenu">
+	  <a href="/wyloguj" id="wylogujsie_przycisk"><li id="wylog">Wyloguj się</li></a>
+	  </ul>	</li></a>  
+
+	  {% else %}
+	  <a href="/login"><li id="log">Zaloguj się</li></a>
+	  {% endif %}
+	</ul>
+
+  
+</div>
+<div class="content">
+
+
+
+
+<p id="wynikitext" style="font-weight:bold; font-size: 20px;padding-bottom:20px;">Wyniki Badań</p>
+<div class="lewywynik"><ul style=" list-style-type: none;">
 			{% for i in range(dl) %}
-				<li id="wynik_{{i}}">{{wyniki[i][5]}} {{wyniki[i][2]}}</li>
+				<li style="font-size:12px;width:75%;padding:8px;margin-left:auto;margin-right:auto;" class="formularz_przycisk" id="wynik_{{i}}">{{wyniki[i][5]}} {{wyniki[i][2]}}</li>
 			{% endfor %}
-		</ul>
-		<div>
-			<form action="/usun_wpis" method="post">
+		</ul></div>
+		
+		
+		
+		<div class="prawywynik" style="margin-top:20px;">
+		
 			{% for i in range(dl) %}
+			
 				<div id="contentw_{{i}}">
-					<table>{{wyniki[i][4]|safe}}</table>
-					<p>{{wyniki[i][3]}}</p>
-					<button type="submit" name="delete" value="{{wyniki[i][0]}}">Usuń</button>
+					<p id="wynikitext" style="font-weight:bold;color:#cdcdcd;padding-bottom:20px;">{{wyniki[i][2]}}  {{wyniki[i][5]}}</p>
+					<table class="tabela_wynikow">{{wyniki[i][4]|safe}}</table>
+					<p class="r" style="text-align:center; padding:10px;" >{{wyniki[i][3]}}</p><p style="text-align:center;"><button type="submit" style="padding:5px 10px 5px 10px ;border-radius:5px;background-color:tomato;cursor:pointer;" name="delete" value="{{wyniki[i][0]}}">Usuń</button></p>
+					
 				</div>
+				
 			{% endfor %}
-			</form>
 		</div>
-	</body>
+		<script src="{{ url_for('static', filename='wyniki.js') }}"></script>
+
+
+
+
+
+</div>
+
+<div class="footer">mikronapedy</div>
+{% endblock %}
+</body>
 </html>
 
 
-<script src="{{ url_for('static', filename='wyniki.js') }}"></script>
+
+
+
+
+
+
+		
