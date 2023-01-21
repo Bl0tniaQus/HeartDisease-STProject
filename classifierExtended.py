@@ -30,7 +30,10 @@ for row in range(temp.shape[0]):
 	elif row == 7:
 		minv = 70
 		maxv = 210
+	elif row==9:
+		maxv=6.5
 	vec = []
+	print([minv,maxv])
 	for x in temp[row]:
 		xnorm = (norm_max - norm_min) * (x - minv) / (maxv - minv) + norm_min
 		vec.append(xnorm)
@@ -38,16 +41,19 @@ for row in range(temp.shape[0]):
 data = datat.transpose()
 
 #sieć neuronowa
-network = MLPRegressor(hidden_layer_sizes=155, max_iter = 3000,activation = 'logistic', learning_rate='adaptive', solver = 'adam')
+network = MLPRegressor()
+network._old_initialize=network._initialize
+def _initialize(self, y, layer_units, dtype):
+    self._old_initialize(y, layer_units, dtype)
+    self.out_activation_="logistic" 
+network._initialize = _initialize.__get__(network)
+network.hidden_layer_sizes=155
+network.max_iter = 300
+network.activation = 'logistic'
+network.learning_rate = 'adaptive'
+network.solver = "adam"
 network.fit(data, target)
 result = network.predict(data)
-
-#normalizacja wyniku do przedziału <0,1>
-temp = result
-result = []
-for v in temp:
-	vnorm = (1 - 0) * (v-min(temp)) / (max(temp) - min(temp)) + 0
-	result.append(round(vnorm,3))
 
 #diagnostyka modelu		
 confusion_matrix = [[0,0,0,0],[0,0,0,0]]
@@ -68,7 +74,7 @@ print(confusion_matrix[0])
 print(confusion_matrix[1])
 
 #eksport modelu
-joblib.dump(network, 'network_extended.ptk', compress=9)
+joblib.dump(network, './static/network_extended.ptk', compress=9)
 
 
 

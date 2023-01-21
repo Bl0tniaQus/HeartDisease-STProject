@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<a href="/">Główna</a>
+		<ul>
+			{% for i in range(dl) %}
+				<li id="wynik_{{i}}">{{wyniki[i][5]}} {{wyniki[i][2]}}</li>
+			{% endfor %}
+		</ul>
+		<div>
+			<form action="/usun_wpis" method="post">
+			{% for i in range(dl) %}
+				<div id="contentw_{{i}}">
+					<table>{{wyniki[i][4]|safe}}</table>
+					<p>{{wyniki[i][3]}}</p>
+					<button type="submit" name="delete" value="{{wyniki[i][0]}}">Usuń</button>
+				</div>
+			{% endfor %}
+			</form>
+		</div>
+	</body>
+</html>
+
+
+<script src="{{ url_for('static', filename='wyniki.js') }}"></script>

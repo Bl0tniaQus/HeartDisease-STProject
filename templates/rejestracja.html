@@ -15,9 +15,12 @@
       <a href="#"><li>Formularz</li></a>
       <a href="#"><li>Wyniki</li></a>
       <a href="#"><li>O nas</li></a>
-	  <a href="/login"><li id="log">Zaloguj się</li></a>
+	  <ul class="submenu_list">
+	  <a href="logowanie" id="logs"><li id="log">Zaloguj się</li></a>
+	  <a href="#" id="wylogujsie_przycisk"><li id="wylog">Wyloguj się</li></a>
+	  </ul>
+	  </ul>
 
-  
 </div>
 <div class="content">
 
@@ -30,6 +33,7 @@
 <input class="pole" type="password" name="haslo" placeholder="Hasło"/>
 <input class="pole" type="password" name="haslo2" placeholder="Powtórz hasło"/>
 <input class="zaloguj_przycisk" type="submit" name="zarejestruj_przycisk" value="Zarejestruj się"/>
+
 <p class="zarejestrujsie">Masz już konto? <a href="/login" class="rejhref">Zaloguj się</a></p>
 <p>{{msg}}</p>
 </form>
