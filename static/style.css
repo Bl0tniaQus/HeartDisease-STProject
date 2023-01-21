@@ -313,11 +313,50 @@ hr{
 		
 		display:none;
 	}
+	
+	
+.tooltip {
+	/*float:left;*/
+  display:inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.nazwapola{
+	color:#cdcdcd;
+	margin-left:20px;
+	
+}
+
+.p{
+	
+	float:left;
+	margin-right:4px;
+	
+	
+}
+
+
 @media screen and (min-width: 854px) {
-	.wybor{
-		display: block;
-		justify-content: auto;
-		
+	#r2{
+		margin-left:0%;
 	}
 	.pola_formularza{
 	
@@ -438,6 +477,17 @@ span{
 	}
 	
 	
+.nazwapola{
+	color:#cdcdcd;
+	margin-left:20px;
+	
+}
+
+.p{
+	
+	float:left;
+	
+}
 
 	
 
@@ -505,9 +555,21 @@ hr{
 		justify-content: center;
 		padding-top:15px;
 	}
+	
+	.nazwapola{
+	color:#cdcdcd;
+	margin-left:20px;
+	
+}
+
+.p{
+	
+	float:left;
+	
+}
+	
+	
 }​
-
-
 
 
 
