@@ -10,13 +10,14 @@
 			{% endfor %}
 		</ul>
 		<div>
+			<form action="/usun_wpis" method="post">
 			{% for i in range(dl) %}
 				<div id="contentw_{{i}}">
 					<table>{{wyniki[i][4]|safe}}</table>
 					<p>{{wyniki[i][3]}}</p>
 					<button type="submit" name="delete" value="{{wyniki[i][0]}}">Usuń</button>
 				</div>
-				
+			</form>
 			{% endfor %}
 		</div>
 	</body>
