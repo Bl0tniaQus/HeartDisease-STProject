@@ -317,6 +317,20 @@ def wyniki():
 		return render_template("wyniki_uzytkownika.html", wyniki = wyniki, dl = len(wyniki))
 	return redirect("/")
 
+@app.route('/usun_wpis')
+def usun_wpis():
+	if request.method == 'POST' and 'user' in session:
+		id = request.form['delete']
+		dbConnection = dbConnect()
+		dbCursor = dbConnection.cursor()
+		dbCursor.execute("DELETE FROM wynik WHERE id_wyniku = {}".format(int(id)))
+		dbConnection.commit()
+		dbCursor.close()
+		db.Connection.close()
+		return redirect("/wyniki")
+	return redirect("/")	
+		
+
 if __name__ == "__main__":
     app.run(debug=True)
 
