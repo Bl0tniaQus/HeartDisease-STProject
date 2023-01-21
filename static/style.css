@@ -4,6 +4,7 @@ margin:0;
 padding:0;
 accent-color:tomato;
 font-family:verdana;
+
 }
 
 body{
@@ -45,11 +46,12 @@ padding:20px;
 }
 
 .content{
+	padding-top:50px;
 background-color:#121212;
 width:80%;
 margin:auto;
 
-min-height:800px;
+min-height:900px;
 }
 .navbar span{
 
@@ -97,7 +99,7 @@ background-color:tomato;
 
 
 .footer{
-margin-top:20px;
+
 background-color:#272727;
 color:#cdcdcd;
 width:100%;
@@ -352,6 +354,60 @@ hr{
 	
 	
 }
+/*WYNIKI*/
+
+.wyniki{
+	
+	padding:20px;
+	padding-left:10%;
+	padding-right:10%;
+	font-size:12px;
+	
+}
+
+
+
+
+th, td {
+  border: 1px solid white;
+}
+
+
+table{
+	margin-top:40px;
+	 border: 1px solid white;
+	 border-collapse: collapse;
+	 margin-left:auto;
+	 margin-right:auto;
+	 
+}
+.tabela_wynikow{
+	margin-top:20px;
+	width:80%;
+	color:#cdcdcd;
+	margin-top:0px;
+}
+
+.tabela_zapisu_danych{
+	border:none;
+	margin-left:10%;
+}
+#tw1{
+	padding-top:50px;
+}
+
+.dodwynikform{
+	padding-bottom:50px;
+}
+
+
+
+
+
+
+
+
+
 
 
 @media screen and (min-width: 854px) {
@@ -472,7 +528,7 @@ span{
 	
 }
 .content{
-		padding-top:100px;
+		padding-top:50px;
 		
 	}
 	
@@ -534,7 +590,7 @@ hr{
 	margin-bottom:-20px;
 }
     .content{
-		padding-top:1px;
+		padding-top:50px;
 		
 	}
 	.formimg{
