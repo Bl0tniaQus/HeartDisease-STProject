@@ -38,9 +38,10 @@ list-style-type:none;
       <a href="#"><li>Wyniki</li></a>
       <a href="#"><li>O nas</li></a>
       {% if session['login'] %}
-	  <a href="logowanie" id="logs"><li id="log">{{session['login']}}</li></a>
+	  <a href="#" id="logs"><li id="log"><p style="color:tomato;">{{session['login']}}</p><ul class="submenu">
 	  <a href="/wyloguj" id="wylogujsie_przycisk"><li id="wylog">Wyloguj się</li></a>
-	  </ul>	  
+	  </ul>	</li></a>  
+
 	  {% else %}
 	  <a href="/login"><li id="log">Zaloguj się</li></a>
 	  {% endif %}
