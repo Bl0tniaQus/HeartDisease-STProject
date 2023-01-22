@@ -314,7 +314,7 @@ def wyniki():
 		
 		dbConnection = dbConnect()
 		dbCursor = dbConnection.cursor()
-		dbCursor.execute("SELECT * FROM wynik WHERE wynik_id_uzytkownika = {} ORDER BY data_dodania ASC".format(session['userid']))
+		dbCursor.execute("SELECT * FROM wynik WHERE wynik_id_uzytkownika = {} ORDER BY data_dodania,id_wyniku DESC".format(session['userid']))
 		wyniki = dbCursor.fetchall()
 		dbCursor.close()
 		dbConnection.close()
