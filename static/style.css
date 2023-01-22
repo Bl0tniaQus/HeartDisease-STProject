@@ -537,8 +537,8 @@ margin-right:auto;
 	
 	.logo{
 		
-		position:fixed;right:15%;top:21px;
-		height:25px;
+		position:fixed;right:15%;top:14px;
+		height:40px;
 	}
 	.iconprofilemobile{display:none;}
 	#profilform1 input {
@@ -731,7 +731,7 @@ span{
 	width:25%;
 	float:left;
 	margin-top:20px;
-	height:70%;
+	height:77%;
 	overflow: auto;
 		border:none;
 
@@ -754,7 +754,7 @@ span{
 
 
 @media (min-width:1080px) and (max-width:1320px) {
-	
+	body{overflow: visible;}
 	#wynikitext{
 	color:tomato;
 	padding-bottom:40px;
