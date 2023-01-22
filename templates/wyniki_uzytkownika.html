@@ -34,6 +34,7 @@ list-style-type:none;
     <span> </span>
     <ul class="menu_list">
       <a href="/"><li>Strona glowna</li></a>
+
       <a href="/form"><li>Formularz</li></a>
       <a href="/tips"><li>Jak dbać o serce</li></a>
       {% if session['login'] %}
@@ -51,7 +52,9 @@ list-style-type:none;
 	  {% endif %}
 	</ul>
 
+
   <img class="logo" src="{{ url_for('static', filename='logo.png') }}" height="40px" style=""/>
+
 </div>
 <div class="content">
 
@@ -69,17 +72,21 @@ list-style-type:none;
 		
 		<div class="prawywynik" style="margin-top:20px;">
 		
+
 <form action="/usun_wpis" method="POST">
+
 			{% for i in range(dl) %}
 			
 				<div id="contentw_{{i}}">
 					<p id="wynikitext" style="font-weight:bold;color:#cdcdcd;padding-bottom:20px;">{{wyniki[i][2]}}  {{wyniki[i][5]}}</p>
 					<table class="tabela_wynikow">{{wyniki[i][4]|safe}}</table>
+
 					<p class="r" style="text-align:center; padding:10px;" >{{wyniki[i][3]}}</p><p style="text-align:center;"><button type="submit" style="padding:5px 10px 5px 10px ;border-radius:5px;background-color:tomato;cursor:pointer; border:none;" name="delete" value="{{wyniki[i][0]}}">Usuń</button></p>
+
 					
 				</div>
+				
 			{% endfor %}
-			</form>
 		</div>
 		<script src="{{ url_for('static', filename='wyniki.js') }}"></script>
 
@@ -89,16 +96,9 @@ list-style-type:none;
 
 </div>
 
+
 <div class="footer">© Copyright by Adrian Hałys &amp Arkadiusz Hanejko</div>
+
 {% endblock %}
 </body>
 </html>
-
-
-
-
-
-
-
-
-		
