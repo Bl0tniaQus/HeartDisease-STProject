@@ -118,13 +118,13 @@ def form_extended():
 		if request.form['bol']=="0":
 			bol = "Brak"
 		elif request.form['bol']=="1":
-			bol = "1. "
+			bol = "Angina"
 		elif request.form['bol']=="2":
-			bol = "2. "
+			bol = "Atypowa angina"
 		elif request.form['bol']=="3":
-			bol = "3. "
+			bol = "Ból nieanginowy"
 		elif request.form['bol']=="4":
-			bol = "4. "
+			bol = "Ból asymptomatyczny"
 			
 		if request.form['cukier']=="1":
 			cukier = ">120mg/dl"
@@ -236,13 +236,13 @@ def form_simplified():
 		if request.form['bol']=="0":
 			bol = "Brak"
 		elif request.form['bol']=="1":
-			bol = "1. "
+			bol = "Angina"
 		elif request.form['bol']=="2":
-			bol = "2. "
+			bol = "Atypowa angina"
 		elif request.form['bol']=="3":
-			bol = "3. "
+			bol = "Ból nieanginowy""
 		elif request.form['bol']=="4":
-			bol = "4. "
+			bol = "Ból asymptomatyczny"
 			
 		if request.form['cukier']=="1":
 			cukier = ">120mg/dl"
