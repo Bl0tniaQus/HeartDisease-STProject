@@ -69,7 +69,7 @@ width:100%;/**/
 }
 
 .content{
-	padding-top:50px;
+	padding-top:68px;
 background-color:#121212;
 width:80%;
 margin:auto;
@@ -249,7 +249,7 @@ background-color:#cdcdcd;
 padding:15%;
 color:#cdcdcd;
 font-family: verdana;
-font-size:12px;
+font-size:14px;
 padding-top:0;
 background-color:#121212;
 }
@@ -529,10 +529,92 @@ margin-right:auto;
 .iconprofilemobile{
 	float:right; width:60px;position:relative;top:-15px;right:10%;
 }
+
+.tipsimg{
+	width:17%;
+	margin-left:auto;
+}
+.tipsleft{
+	
+	color:tomato;
+	text-align:center;
+	padding-bottom: 40px;
+	font-size:32px;
+	
+}
+.tip{
+	color:#cdcdcd;
+	margin-left:20px;
+	margin-right:20px;
+	padding-bottom:15px;
+	text-align: justify;
+}
+.tipsright p {
+	text-align:center;
+	padding-top:60px;
+}
+
+
 @media screen and (min-width: 1080px) {
 	body{
 		overflow: hidden;
 	}
+	
+#z1{
+	position:relative;
+	left:15%;
+}	
+#z2{
+	margin-right:90%;
+}	
+#z3{
+	position:relative;
+	left:5%;
+}	
+#z4{
+	position:relative;
+	right:70%;
+	bottom:-50px;
+}	
+#z5{
+	position:relative;
+	right:180%;
+	bottom:100px;
+}	
+.tipsimg{
+	width:50%;
+	margin-left:auto;
+	display:block;
+}
+.tipsleft{
+	
+	color:tomato;
+	text-align:center;
+	padding-bottom: 40px;
+	font-size:32px;
+	
+	
+}
+.tip{
+	color:#cdcdcd;
+	margin-left:130px;
+	margin-right:20px;
+	padding-bottom:15px;
+	text-align: justify;
+	font-size:24px;
+}
+.tipsright {
+	text-align:center;
+	width:250px;
+	float:left;
+	
+}
+	
+.tips{
+	width:70%;
+	float:left;
+	padding-top:80px;
+}
 	
 	
 	.logo{
@@ -709,7 +791,7 @@ span{
 	
 }
 .content{
-		padding-top:50px;
+		padding-top:68px;
 		height:100%;
 		
 	}
@@ -799,7 +881,7 @@ hr{
 	margin-bottom:-20px;
 }
     .content{
-		padding-top:50px;
+		padding-top:68px;
 		
 	}
 	.formimg{
