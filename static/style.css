@@ -1,5 +1,5 @@
 html{height:100%;}
-body{height:100%;}
+body{height:100%;margin-top:55px;/**/}
 *{
 margin:0;
 padding:0;
@@ -7,6 +7,22 @@ accent-color:tomato;
 font-family:verdana;
 
 }
+.logo{
+	position:fixed;right:13.5px;top:13.5px;
+}
+.lewywynik::-webkit-scrollbar {
+  width: 8px;
+}
+ 
+.lewywynik::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px tomato;
+}
+ 
+.lewywynik::-webkit-scrollbar-thumb {
+  background-color: tomato;
+  outline: 1px solid red;
+}
+
 
 body{
 background-color:tomato;
@@ -18,18 +34,21 @@ list-style-type:none;
 .menu_list{
 margin-top:20px;
 }
-.menu_list li{
-padding-top:8px;
+.menu_list a li{
+padding-top:20px;
 padding-bottom:8px;
 color:#cdcdcd;
-font-family:sans-serif;
+font-family:verdana;
 list-style-type:none;
+
 
 }
 
 #log{
 	font-weight:bold;
 	color:tomato;
+	padding-top:21px;
+	list-style-type:none;
 
 }
 
@@ -42,8 +61,11 @@ list-style-type:none;
 
 .navbar{
 background-color:272727;
+margin-top:-55px;
 z-index:1;
 padding:20px;
+position:fixed;/**/
+width:100%;/**/
 }
 
 .content{
@@ -52,7 +74,7 @@ background-color:#121212;
 width:80%;
 margin:auto;
 
-height:87.25%;
+height:100%;
 /*overflow: hidden;*/
 
 }
@@ -103,12 +125,14 @@ background-color:#cdcdcd;
 
 .footer{
 
+font-size:10px;
 background-color:#272727;
 color:#cdcdcd;
 width:100%;
 position:fixed;
 bottom:0px;
-padding-top:0;
+padding-top:3px;
+padding-bottom:3px;
 }
 
 
@@ -300,7 +324,7 @@ hr{
 }
 #r2{
 	margin-top:25px;
-	margin-left:15%;
+	margin-left:25%;
 }
 	
 
@@ -332,10 +356,11 @@ hr{
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 400x;
   background-color: black;
   color: #fff;
-  text-align: center;
+  text-align: left;
+  border:1px solid tomato;
   border-radius: 6px;
   padding: 5px 0;
 
@@ -436,13 +461,119 @@ table{
 }
 .lewywynik{float:none;width:100%;height:200px;color:#scdcdcd;border: 1px solid tomato;padding-bottom:5px;}
 
-.prawywynik{float:none;width:100%;}
+.prawywynik{float:none;width:100%;background-color:#121212;}
 
 
+.profil{
+	color:#cdcdcd;
+	padding:10px;
+	
+	
+}
+.profilname{
+	color:tomato;
+	font-size:24px;
+	text-align:center;
+	padding-bottom:50px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
 
 
+.polehasla{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:25px;
+	padding:14px;
+	width:250px;
+	border-radius:8px;
+	outline:none;
+	border:none;
+	background-color:white;
+	cursor:pointer;
+	text-align:left;
+	
+}
 
-@media screen and (min-width: 854px) {
+.polehasla:focus{
+	outline:2px solid tomato;
+	background-color:#ffcdbf;
+	border:none;
+	
+}
+.polehasla:selection{
+	outline:2px solid tomato;
+	background-color:#ffcdbf;
+	border:none;
+	
+}
+
+#profilform1 input{
+		
+	margin-left:auto;
+margin-right:auto;	
+
+}
+
+
+.profilzm{
+		text-align:center! important;
+		color:tomato;
+}
+.profilicon{
+		display:none! important;
+		
+}
+.iconprofilemobile{display:block;}
+.iconprofilemobile{
+	float:right; width:60px;position:relative;top:-15px;right:10%;
+}
+@media screen and (min-width: 1080px) {
+	body{
+		overflow: hidden;
+	}
+	
+	
+	.logo{
+		
+		position:fixed;right:15%;top:21px;
+		height:25px;
+	}
+	.iconprofilemobile{display:none;}
+	#profilform1 input {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+	.profil{
+		text-align:left;
+		margin-left:30px;
+	}
+	.polehasla{
+		margin-left:10px;
+	}
+	.profilicon{
+		display:block! important;
+		position:absolute;
+		left:60%;
+		width:200px;
+		border: 2px solid tomato;
+		border-radius:10px;
+	}
+	.profilzm{
+		text-align:left!important;
+		margin-left:40px;
+		margin-top:10px;
+}
+	#profilform1{
+		
+		margin-left:30px;
+
+	}
+	#profilform2{
+		margin-left:30px;
+	}
+	
 	#wynikitext{
 	color:tomato;
 	padding-bottom:40px;
@@ -494,7 +625,7 @@ hr{
 	display:block;
 	width:150px;clear:both;
 	background-color:272727;
-	margin-top:5px;
+	margin-top:0px;
 	text-align:center;
 	width:190px; 
 position:fixed;
@@ -509,7 +640,11 @@ position:fixed;
 p{
 	color:tomato;
 }
-
+.navbar{/**/
+	position:fixed;
+	width:100%;
+	
+}
 .navbar input{
 display: none;
 }
@@ -532,6 +667,7 @@ margin-left:20%;
 float:left;
 margin-left:20px;
 margin-right:20px;
+
 }
 .navbar ul{
 margin-top:-20px;
@@ -574,7 +710,8 @@ span{
 }
 .content{
 		padding-top:50px;
-		height:89%;
+		height:100%;
+		
 	}
 	
 	
@@ -594,7 +731,7 @@ span{
 	width:25%;
 	float:left;
 	margin-top:20px;
-	height:88%;
+	height:70%;
 	overflow: auto;
 		border:none;
 
@@ -615,8 +752,8 @@ span{
 
 
 
-}
-@media (min-width:854px) and (max-width:1320px) {
+
+@media (min-width:1080px) and (max-width:1320px) {
 	
 	#wynikitext{
 	color:tomato;
