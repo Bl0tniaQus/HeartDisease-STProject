@@ -213,7 +213,7 @@ def form_extended():
 				wynik = "Duże"
 			if result>=0.75 and result<=1:
 				wynik = "Bardzo duże"
-		table = "<tr><td>Test rozszerzony</td><td><Wynik testu: {}/td></tr>".format(wynik) + table
+		table = "<tr><td>Test rozszerzony</td><td>Ryzyko choroby: {}</td></tr>".format(wynik) + table
 		return render_template("wynik.html", msg=msg,table=table, wynik=wynik)
 	return redirect("/form")
 	
@@ -285,7 +285,7 @@ def form_simplified():
 				wynik = "Duże"
 			if result>=0.75 and result<=1:
 				wynik = "Bardzo duże"
-		table = "<tr><td>Test podstawowy</td><td><Wynik testu: {}/td></tr>".format(wynik) + table
+		table = "<tr><td>Test podstawowy</td><td>Ryzyko choroby: {}</td></tr>".format(wynik) + table
 		return render_template("wynik.html", msg=msg, wynik=wynik,table=table)
 	return redirect("/form")	
 @app.route('/dodaj_wynik', methods=["POST"])
@@ -316,6 +316,20 @@ def wyniki():
 		dbConnection.close()
 		return render_template("wyniki_uzytkownika.html", wyniki = wyniki, dl = len(wyniki))
 	return redirect("/")
+
+@app.route('/usun_wpis', methods=["POST"])
+def usun_wpis():
+	if request.method == 'POST' and 'login' in session:
+		id = request.form['delete']
+		dbConnection = dbConnect()
+		dbCursor = dbConnection.cursor()
+		dbCursor.execute("DELETE FROM wynik WHERE id_wyniku = {}".format(int(id)))
+		dbConnection.commit()
+		dbCursor.close()
+		dbConnection.close()
+		return redirect("/wyniki")
+	return redirect("/")	
+		
 
 if __name__ == "__main__":
     app.run(debug=True)

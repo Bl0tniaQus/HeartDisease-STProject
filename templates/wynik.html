@@ -71,10 +71,11 @@ list-style-type:none;
 		{% if session['login'] %}
 
 		<form action="/dodaj_wynik" method="post" class="dodwynikform">
-		
+		<input type="hidden" name="tresc" value="{{table}}"/>
+		<input type="hidden" name="userid" value="{{session['userid']}}"/>
 		<p class="wyniki" style="color:#cdcdcd;">Tytuł: </p><input type="text" max="25" style="margin-left:10%;" name="tytul" required/>
 		
-		<p class="wyniki" style="color:#cdcdcd;">Opis: </p><textarea style="margin-left:10%;"maxlength="300"></textarea>
+		<p class="wyniki" style="color:#cdcdcd;">Opis: </p><textarea style="margin-left:10%;"maxlength="300" name="opis"></textarea>
 		<button class="formularz_przycisk" type="submit" style="">Zapisz</button>
 		{% else %}
 		<p>Będąc <a href="/login">zalogowanym</a> możliwe jest zapisywanie otrzymanych rezultatów</p>

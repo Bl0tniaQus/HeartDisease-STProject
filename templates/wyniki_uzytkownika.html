@@ -65,6 +65,7 @@ list-style-type:none;
 		
 		<div class="prawywynik" style="margin-top:20px;">
 		
+
 			{% for i in range(dl) %}
 			
 				<div id="contentw_{{i}}">
@@ -73,8 +74,8 @@ list-style-type:none;
 					<p class="r" style="text-align:center; padding:10px;" >{{wyniki[i][3]}}</p><p style="text-align:center;"><button type="submit" style="padding:5px 10px 5px 10px ;border-radius:5px;background-color:tomato;cursor:pointer;" name="delete" value="{{wyniki[i][0]}}">Usuń</button></p>
 					
 				</div>
-				
 			{% endfor %}
+			</form>
 		</div>
 		<script src="{{ url_for('static', filename='wyniki.js') }}"></script>
 
