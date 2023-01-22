@@ -23,6 +23,10 @@ Session(app)
 def index():
 	return render_template("index.html")
     
+@app.route('/tips')
+def tips():
+	return render_template("tips.html")
+    
 @app.route('/login')
 def logowanie():
 	
@@ -114,13 +118,13 @@ def form_extended():
 		if request.form['bol']=="0":
 			bol = "Brak"
 		elif request.form['bol']=="1":
-			bol = "Angina"
+			bol = "1. "
 		elif request.form['bol']=="2":
-			bol = "Atypowa angina"
+			bol = "2. "
 		elif request.form['bol']=="3":
-			bol = "Ból nieanginowy"
+			bol = "3. "
 		elif request.form['bol']=="4":
-			bol = "Ból asymptomatyczny"
+			bol = "4. "
 			
 		if request.form['cukier']=="1":
 			cukier = ">120mg/dl"
@@ -232,13 +236,13 @@ def form_simplified():
 		if request.form['bol']=="0":
 			bol = "Brak"
 		elif request.form['bol']=="1":
-			bol = "Angina"
+			bol = "1. "
 		elif request.form['bol']=="2":
-			bol = "Atypowa angina"
+			bol = "2. "
 		elif request.form['bol']=="3":
-			bol = "Ból nieanginowy"
+			bol = "3. "
 		elif request.form['bol']=="4":
-			bol = "Ból asymptomatyczny"
+			bol = "4. "
 			
 		if request.form['cukier']=="1":
 			cukier = ">120mg/dl"
@@ -371,6 +375,7 @@ def zmiana_hasla():
 			else:
 				haslo_zmieniane = hashlib.sha256(haslo_nowe.encode('utf-8')).hexdigest()
 				dbCursor.execute("UPDATE uzytkownik SET haslo = '{}' WHERE id_uzytkownika = {}".format(haslo_zmieniane,session['userid']))
+				print("UPDATE uzytkownik SET haslo = '{}' WHERE id_uzytkownika = {}".format(haslo_zmieniane,session['userid']))
 				dbConnection.commit()
 				msg = "Hasło zmienione pomyślnie"
 		dbCursor.close()
@@ -378,6 +383,3 @@ def zmiana_hasla():
 	return render_template("profil.html", haslo_msg=msg)	
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-		
