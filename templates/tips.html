@@ -1,0 +1,58 @@
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+<!--<a href="https://www.flaticon.com/free-icons/fruit" title="fruit icons">Fruit icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/hypertension" title="hypertension icons">Hypertension icons created by Smashicons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/weight-loss" title="weight loss icons">Weight loss icons created by photo3idea_studio - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/no-alcohol" title="no alcohol icons">No alcohol icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/exercise" title="exercise icons">Exercise icons created by Freepik - Flaticon</a>-->
+</head>
+<body>
+{% block content %}
+<div class="navbar"> 
+	<input type="checkbox" checked="unckecked" />   
+    <span> </span>
+    <span> </span>
+    <span> </span>
+    <ul class="menu_list">
+      <a href="/"><li>Strona glowna</li></a>
+      <a href="/form"><li>Formularz</li></a>
+      <a href="/tips"><li>Jak dbać o serce</li></a>
+      {% if session['login'] %}
+	  <a href="/profil" id="logs"><li id="log"><p style="color:tomato;font-family:">{{session['login']}}</p><ul class="submenu">
+	  <a href="/profil" id="profil_przycisk"><li id="wylog">Profil</li></a>
+	  
+	  <a href="/wyniki" id="wyniki_przycisk"><li id="wylog">Wyniki</li></a>
+	   
+	  <a href="/wyloguj" id="wylogujsie_przycisk"><li  style=" color:tomato;"  id="wylog">Wyloguj się</li></a>
+	   
+	  </ul>	</li></a>  
+
+	  {% else %}
+	  <a href="/login"><li id="log">Zaloguj się</li></a>
+	  {% endif %}
+	</ul>
+
+  <img class="logo" src="{{ url_for('static', filename='logo.png') }}" height="40px" style=""/>
+</div>
+<div class="content">
+
+<p class="tipsleft">Jak dbać o swoje serce?</p>
+<div class="tips">
+<p class="tip">Rzuć palenie tytoniu, oraz ogranicz spożywanie alkoholu!</p><p class="tip">Odżywiaj się zdrowo -  mniej tłuszczy, więcej warzyw i owoców!</p><p class="tip">Bądź aktywny fizycznie!</p><p class="tip">Staraj się utrzymać masę ciała w granicach normy BMI!</p><p class="tip">Kontroluj ciśnienie tętnicze krwi oraz prawidłowe stężenie cholesterolu!</p>
+</div>
+<div class="tipsright"><p>
+<img id="z1" class="tipsimg" src="{{ url_for('static', filename='running.png') }}"/>
+<img id="z2"  class="tipsimg"  src="{{ url_for('static', filename='no-alcohol.png') }}" />
+<img id="z3"  class="tipsimg"  src="{{ url_for('static', filename='slim.png') }}" />
+<img id="z4"  class="tipsimg"  src="{{ url_for('static', filename='arm.png') }}" />
+<img id="z5"  class="tipsimg"  src="{{ url_for('static', filename='healthy-food.png') }}"/></p>
+
+</div>
+</div>
+
+<div class="footer">© Copyright by Adrian Hałys &amp Arkadiusz Hanejko</div>
+{% endblock %}
+</body>
+
+</html>

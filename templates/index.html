@@ -34,12 +34,16 @@ list-style-type:none;
     <span> </span>
     <ul class="menu_list">
       <a href="/"><li>Strona glowna</li></a>
-      <a href="#"><li>Formularz</li></a>
-      <a href="#"><li>Wyniki</li></a>
-      <a href="#"><li>O nas</li></a>
+      <a href="/form"><li>Formularz</li></a>
+      <a href="/tips"><li>Jak dbać o serce</li></a>
       {% if session['login'] %}
-	  <a href="#" id="logs"><li id="log"><p style="color:tomato;">{{session['login']}}</p><ul class="submenu">
-	  <a href="/wyloguj" id="wylogujsie_przycisk"><li id="wylog">Wyloguj się</li></a>
+	  <a href="/profil" id="logs"><li id="log"><p style="color:tomato;font-family:">{{session['login']}}</p><ul class="submenu">
+	  <a href="/profil" id="profil_przycisk"><li id="wylog">Profil</li></a>
+	  
+	  <a href="/wyniki" id="wyniki_przycisk"><li id="wylog">Wyniki</li></a>
+	   
+	  <a href="/wyloguj" id="wylogujsie_przycisk"><li  style=" color:tomato;"  id="wylog">Wyloguj się</li></a>
+	   
 	  </ul>	</li></a>  
 
 	  {% else %}
@@ -47,13 +51,19 @@ list-style-type:none;
 	  {% endif %}
 	</ul>
 
-  
+  <img class="logo" src="{{ url_for('static', filename='logo.png') }}" height="40px" style=""/>
 </div>
-<div class="content">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="content" style="padding-top:150px;">
+<img class="serceglowne" src="{{ url_for('static', filename='heart.png') }}"  style=""/>
+<p class="tip" style="margin-left:100px;font-size:16px;margin-right:100px;padding:20px;padding-top:0px; ">W dzisiejszym dotkniętym przez choroby cywilizacyjne i zabieganym świecie, często temat zdrowia odsuwany jest na dalszy plan. Wyjątkiem od tej reguły nie jest niestety zdrowie naszego serca, które będąc obok mózgu najważniejszym organem ciała człowieka jest bardziej jak nigdy narażone przez powszechny siedzący tryb życia oraz popularność szybkiego, nie do końca zdrowego jedzenia. Panująca ogólna niechęć społeczeństwa do wizyt u lekarza także zwiększa ryzyko różnorakich powikłań, gdyż przeważnie o tym co nam dolega dowiadujemy się gdy jest już późno. </p>
+<p class="tip" style="margin-left:100px;font-size:16px;margin-right:100px;padding:20px; ">
+Serwis HEAiRT wykorzystuje techniki sztucznej inteligencji, aby na podstawie historycznych danych opracowanych na kilku światowych uczelniach określić ryzyko wystąpienia choroby tego jakże ważnego, ale bardzo wrażliwego organu jakim jest serce. Jego misją jest zwiększenie świadomości społeczeństwa na temat istniejących zagrożeń. Serwis udostępnia test umożliwiający sprawdzenie oszacowanej szansy wystąpienia problemów z sercem z myślą, że wczesne wykrycie rodzących się problemów może pomóc w oszczędzeniu nieprzyjemności sobie i swoim bliskim.</p>
+<p class="tip" style="margin-left:100px;font-size:16px;margin-right:100px;padding:20px; ">
+<b>UWAGA!</b> Test zwraca jedynie informację poglądową i jego wynik nie jest w stu procentach idealny i rzetelny. HEAiRT nie ma na celu zastąpienie prawdziwego lekarza i głęboko zalecamy skierowanie się do odpowiedniego specjalisty w przypadku jakichkolwiek wątpliwości co do swojego stanu zdrowia.</p>
+
 </div>
 
-<div class="footer">mikronapedy</div>
+<div class="footer">© Copyright by Adrian Hałys &amp Arkadiusz Hanejko</div>
 {% endblock %}
 </body>
 </html>
