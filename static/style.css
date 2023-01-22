@@ -52,8 +52,8 @@ background-color:#121212;
 width:80%;
 margin:auto;
 
-height:87%;
-overflow: hidden;
+height:87.25%;
+/*overflow: hidden;*/
 
 }
 .navbar span{
@@ -202,11 +202,12 @@ background-color:#cdcdcd;
 	display:none;
 }
 #wylog{
-	position:absolute;
+	/*position:absolute; tylko dla desktopa*/
 	background-color:#272727;
 	width:170px;
-	margin-left:-10px;
+	margin-left:40px;
 	font-weight:normal;
+	text-align:left;
 	
 }
 #log:hover  .submenu{
@@ -226,6 +227,7 @@ color:#cdcdcd;
 font-family: verdana;
 font-size:12px;
 padding-top:0;
+background-color:#121212;
 }
 .pola_formularza{
 	width: 20%;
@@ -298,7 +300,7 @@ hr{
 }
 #r2{
 	margin-top:25px;
-	margin-left:22%;
+	margin-left:15%;
 }
 	
 
@@ -475,13 +477,19 @@ hr{
 }
 .submenu{
 	display:none;
+	
 }
 #wylog{
 	background-color:#272727;
 	width:170px;
-	margin-left:-10px;
+	margin-left:-20px;
+	
+	width:100%;
 	font-weight:normal;
+	/*position:absolute;*/
+	text-align:center;
 }
+
 #log:hover  .submenu{
 	display:block;
 	width:150px;clear:both;
@@ -489,6 +497,7 @@ hr{
 	margin-top:5px;
 	text-align:center;
 	width:190px; 
+position:fixed;
 
 
 }
@@ -532,12 +541,11 @@ margin-top:-20px;
 	color: tomato;
 	transition-duration:0.5s;
 	margin-left:20px;
-	scale:1.1;
-}
-#log:hover{
-scale:1.1;
 
 }
+
+
+
 
 
 
@@ -706,6 +714,9 @@ hr{
 		
 
 	
+}
+#wylog{
+	/*position:absolute;*/
 }
 }​
 
