@@ -62,56 +62,59 @@ list-style-type:none;
 
 <form class="formularz" id="form1" action="form_extended" method="post">
 			<br/><br/>
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Biologiczny wiek</span></div>
 			Wiek:</p></div> <input class="pola_formularza" id="f1_wiek"type="number" min="1" name="wiek" required/><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Płeć: </p></div> <select class="pola_formularza" id="f1_plec" name="plec">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Płeć biologiczna - wybór jedynie między mężczyzną a kobietą</span></div>Płeć: </p></div> <select class="pola_formularza" id="f1_plec" name="plec">
 				<option value="0">Mężczyzna</option>
 				<option value="1">Kobieta</option>
 			</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Typ bólu klatki piersiowej: </p></div> <select class="pola_formularza" id="f1_bol" name="bol"><br/><br/><hr><br/>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Angina (stabilna dławica piersiowa) - krótkotrwały, nagły ból po wysiłku<br/>
+Atypowa angina (Niestabilna dusznica bolesna)- krótkotrwały, nagły ból w nieprzewidywalnych momentach<br/>
+Nie-anginowy - stały<br/>
+Asymptomatyczny - małe zawały serca<br/></span></div>Typ bólu klatki piersiowej: </p></div> <select class="pola_formularza" id="f1_bol" name="bol"><br/><br/><hr><br/>
 				<option value="0">Brak</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
+				<option value="1">Angina</option>
+				<option value="2">Atypowa angina</option>
+				<option value="3">Ból nieanginalny</option>
+				<option value="4">Ból asymptomatyczny</option>
 				</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Ból klatki w trakcie wysiłku </p></div><select class="pola_formularza" id="f1_bolw" name="bolw">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Czy ból klatki piersiowej występuje podczas aktywności fizycznej?</span></div>Ból klatki w trakcie wysiłku </p></div><select class="pola_formularza" id="f1_bolw" name="bolw">
 				<option value="2">Nie</option>
 				<option value="1">Tak</option>
 				</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Maksymalne tempo bicia serca w trakcie wysiłku [bpm]</p> </div><input class="pola_formularza" id="f1_bicieserca" type="number" min="1" name="bicieserca" required/><br/><br/><hr><br/>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Maksymalne tempo bicia serca obserwowane podczas wysiłku</span></div>Maksymalne tempo bicia serca w trakcie wysiłku [bpm]</p> </div><input class="pola_formularza" id="f1_bicieserca" type="number" min="1" name="bicieserca" required/><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Ciśnienie spoczynkowe - skurczowe [mmHg] </p></div><input class="pola_formularza" id="f1_cisnienie"type="number" min="0" name="cisnienie" required/><br/><br/><hr><br/>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Ciśnienie spoczynkowe - skurczowe (Większa wartość pochodząca z ciśnieniomierza)</span></div>Ciśnienie spoczynkowe - skurczowe [mmHg] </p></div><input class="pola_formularza" id="f1_cisnienie"type="number" min="0" name="cisnienie" required/><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Poziom cholesterolu całkowitego [mg/dl]</p> </div><input class="pola_formularza" id="f1_cholesterol" type="number" min="0" name="cholesterol" required/><br/><br/><hr><br/>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Poziom cholesterolu całkowitego, wyznaczany jako suma choleterolu HDL, LDL i dwudziestu procent triglicerydów</span></div>Poziom cholesterolu całkowitego [mg/dl]</p> </div><input class="pola_formularza" id="f1_cholesterol" type="number" min="0" name="cholesterol" required/><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Poziom cukru we krwi na czczo:</p> </div><select class="pola_formularza" id="f1_cukier"name="cukier">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Poziom cukru we krwi przed jakimkolwiek posiłkiem</span></div>Poziom cukru we krwi na czczo:</p> </div><select class="pola_formularza" id="f1_cukier"name="cukier">
 				<option value="1">Powyżej 120md/dl</option>
 				<option value="2">Poniżej 120md/dl</option>
 				</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Wynik EKG:</p> </div> <select class="pola_formularza" id="f1_ekg" name="ekg">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Poziom zaburzeń odczytanych podczas badania elektrokardiografem (EKG)</span></div>Wynik EKG:</p> </div> <select class="pola_formularza" id="f1_ekg" name="ekg">
 					<option value="0">W normie</option>
 					<option value="1">Anomalie fali ST-T</option>
 					<option value="2">Przerost lewej komory (Hipertrofia)</option>
 				</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Różnice odcinka ST podczas spoczynku i podczas wysiłku</p> </div><input class="pola_formularza" id="f1_st" type="number" name="st" required/><br/><br/><hr><br/>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Różnice w położeniu odcinka ST EKG podczas wysiłku i spoczynku ( w milimetrach )</span></div>Różnice odcinka ST podczas spoczynku i podczas wysiłku</p> </div><input class="pola_formularza" id="f1_st" type="number" name="st" required/><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Nachylenie odcinka ST:</p> </div> <select class="pola_formularza" id="f1_nachylenie" name="nachylenie">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Typ nachylenie odcinka ST widoczny na badaniu EKG</span></div>Nachylenie odcinka ST:</p> </div> <select class="pola_formularza" id="f1_nachylenie" name="nachylenie">
 					<option value="1">W górę</option>
 					<option value="2">Płasko</option>
 					<option value="3">W dół</option>
 				</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Talasemia:</p> </div><select class="pola_formularza" id="f1_talasemia" name="talasemia">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Status talasemii - choroby genetycznej objawiającej się niedokrwistością</span></div>Talasemia:</p> </div><select class="pola_formularza" id="f1_talasemia" name="talasemia">
 					<option value="3">Brak</option>
-					<option value="6">Brak przepływu krwi w niektórych miejscach</option>
-					<option value="7">Ogólnie zaburzony przepływ krwi</option>
+					<option value="6">Niedokrwistość miejscowa</option>
+					<option value="7">Niedokrwistość ogólna</option>
 				</select><br/><br/><hr><br/>
 				<button class="formularz_przycisk" type="submit" id="f1_submit" name="submit">Sprawdź</button>
 		</form>
@@ -131,15 +134,18 @@ list-style-type:none;
 
 <form class="formularz" id="form2" action="form_simplified" method="post">
 			<br/><br/>
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Biologiczny wiek</span></div>
 			Wiek:</p></div> <input class="pola_formularza" id="f2_wiek"type="number" min="1" name="wiek" required/><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Płeć: </p></div> <select class="pola_formularza" id="f2_plec" name="plec">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Płeć biologiczna - wybór jedynie między mężczyzną a kobietą</span></div>Płeć: </p></div> <select class="pola_formularza" id="f2_plec" name="plec">
 				<option value="0">Mężczyzna</option>
 				<option value="1">Kobieta</option>
 			</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Typ bólu klatki piersiowej: </p></div> <select class="pola_formularza" id="f2_bol" name="bol"><br/><br/><hr><br/>
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Angina (stabilna dławica piersiowa) - krótkotrwały, nagły ból po wysiłku<br/>
+Atypowa angina (Niestabilna dusznica bolesna)- krótkotrwały, nagły ból w nieprzewidywalnych momentach<br/>
+Nie-anginowy - stały<br/>
+Asymptomatyczny - małe zawały serca<br/></span></div>Typ bólu klatki piersiowej: </p></div> <select class="pola_formularza" id="f2_bol" name="bol"><br/><br/><hr><br/>
 				<option value="0">Brak</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -147,18 +153,18 @@ list-style-type:none;
 				<option value="4">4</option>
 				</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Ból klatki w trakcie wysiłku </p></div><select class="pola_formularza" id="f2_bolw" name="bolw">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Czy ból klatki piersiowej występuje podczas aktywności fizycznej?</span></div>Ból klatki w trakcie wysiłku </p></div><select class="pola_formularza" id="f2_bolw" name="bolw">
 				<option value="2">Nie</option>
 				<option value="1">Tak</option>
 				</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Maksymalne tempo bicia serca w trakcie wysiłku [bpm]</p> </div><select class="pola_formularza"  id="f2_bicieserca" name="bicieserca">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Maksymalne tempo bicia serca obserwowane podczas wysiłku</span></div>Maksymalne tempo bicia serca w trakcie wysiłku [bpm]</p> </div><select class="pola_formularza"  id="f2_bicieserca" name="bicieserca">
 					<option value="130">Obniżone ~130</option>
 					<option value="160">W normie ~160</option>
 					<option value="190">Podwyższone ~190</option>
 				</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Ciśnienie spoczynkowe - skurczowe [mmHg] </p></div><select  class="pola_formularza" id="f2_cisnienie" name="cisnienie">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Ciśnienie spoczynkowe - skurczowe (Większa wartość pochodząca z ciśnieniomierza)</span></div>Ciśnienie spoczynkowe - skurczowe [mmHg] </p></div><select  class="pola_formularza" id="f2_cisnienie" name="cisnienie">
 					<option value="95">Niskie ~90</option>
 					<option value="105">Obniżone ~105</option>
 					<option value="120">W normie ~120</option>
@@ -166,7 +172,7 @@ list-style-type:none;
 					<option value="160">Wysokie ~160</option>
 					</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Poziom cholesterolu całkowitego [mg/dl]</p> </div><select class="pola_formularza"  id="f2_cholesterol" name="cholesterol">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Poziom cholesterolu całkowitego, wyznaczany jako suma choleterolu HDL, LDL i dwudziestu procent triglicerydów</span></div>Poziom cholesterolu całkowitego [mg/dl]</p> </div><select class="pola_formularza"  id="f2_cholesterol" name="cholesterol">
 					<option value="120">Niski ~120</option>
 					<option value="135">Obniżony ~135</option>
 					<option value="155">W normie ~155</option>
@@ -174,7 +180,7 @@ list-style-type:none;
 					<option value="300">Wysoki ~300</option>
 					</select><br/><br/><hr><br/>
 			
-			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Tooltip text</span></div>Poziom cukru we krwi na czczo:</p> </div><select class="pola_formularza"  id="f2_cukier"name="cukier">
+			<div class="atr"><p class="nazwapola"><div class="tooltip"><img class="p" src="{{url_for('static', filename='question-mark.png')}}" width="10px"  /><span class="tooltiptext">Poziom cukru we krwi przed jakimkolwiek posiłkiem</span></div>Poziom cukru we krwi na czczo:</p> </div><select class="pola_formularza"  id="f2_cukier"name="cukier">
 				<option value="2">Obniżony &lt;120mg/dl</option>
 				<option value="1">Podwyższony&gt;120mg/dl</option>
 				</select><br/><br/><hr><br/>
