@@ -305,7 +305,7 @@ def dodaj_wynik():
 		dbConnection.commit()
 		dbCursor.close()
 		dbConnection.close()
-	return redirect("/")		
+	return redirect("/profil")		
 
 @app.route('/wyniki')
 def wyniki():
