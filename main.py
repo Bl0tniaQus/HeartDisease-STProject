@@ -206,13 +206,13 @@ def form_extended():
 			network = joblib.load('static/network_extended.ptk')
 			result = network.predict([dane])
 			if result>=0 and result<0.25:
-				wynik = "Niskie"
+				wynik = '<span style="color:#5ad449;">Niskie</span>'
 			if result>=0.25 and result<0.50:
-				wynik = "Podwyższone"
+				wynik = '<span style="color:#d1dc0c;">Podwyższone</span>'
 			if result>=0.50 and result<0.75:
-				wynik = "Duże"
+				wynik = '<span style="color:#ef662b;">Wysokie</span>'
 			if result>=0.75 and result<=1:
-				wynik = "Bardzo duże"
+				wynik = '<span style="color:#e02d2d;">Bardzo wysokie</span>'
 		table = "<tr><td>Test rozszerzony</td><td>Ryzyko choroby: {}</td></tr>".format(wynik) + table
 		return render_template("wynik.html", msg=msg,table=table, wynik=wynik)
 	return redirect("/form")
@@ -278,13 +278,13 @@ def form_simplified():
 			result = network.predict([dane])
 			
 			if result>=0 and result<0.25:
-				wynik = "Niskie"
+				wynik = '<span style="color:#5ad449;">Niskie</span>'
 			if result>=0.25 and result<0.50:
-				wynik = "Podwyższone"
+				wynik = '<span style="color:#d1dc0c;">Podwyższone</span>'
 			if result>=0.50 and result<0.75:
-				wynik = "Duże"
+				wynik = '<span style="color:#ef662b;">Wysokie</span>'
 			if result>=0.75 and result<=1:
-				wynik = "Bardzo duże"
+				wynik = '<span style="color:#e02d2d;">Bardzo wysokie</span>'
 		table = "<tr><td>Test podstawowy</td><td>Ryzyko choroby: {}</td></tr>".format(wynik) + table
 		return render_template("wynik.html", msg=msg, wynik=wynik,table=table)
 	return redirect("/form")	
@@ -334,14 +334,15 @@ def profil():
 	dbConnection = dbConnect()
 	dbCursor = dbConnection.cursor()
 	dbCursor.execute("SELECT data_dolaczenia FROM uzytkownik WHERE id_uzytkownika = {}".format(session['userid']))
-	data_dolaczenia = dbCursor.fetchall()[0][0]
+	session['data_dolaczenia'] = dbCursor.fetchall()[0][0]
 	dbCursor.execute("SELECT count(*) FROM wynik WHERE wynik_id_uzytkownika = {}".format(session['userid']))
-	count = dbCursor.fetchall()[0][0]
+	session['count']  = dbCursor.fetchall()[0][0]
 	dbCursor.close()
 	dbConnection.close()
-	return render_template("profil.html", data_dolaczenia=data_dolaczenia, count=count)
+	return render_template("profil.html")
 @app.route("/usun_konto", methods=["POST"])
 def usun_konto():
+	msg=""
 	if 'userid' in session and request.method == "POST":
 		dbConnection = dbConnect()
 		dbCursor = dbConnection.cursor()
@@ -352,7 +353,29 @@ def usun_konto():
 		dbConnection.close()
 		return redirect("/wyloguj")
 	return redirect("/")
-
+@app.route("/zmiana_hasla", methods=["POST"])
+def zmiana_hasla():
+	if 'userid' in session and request.method =="POST":
+		haslo_stare = request.form['haslo_stare']
+		haslo_nowe = request.form['haslo_nowe']
+		haslo_nowe2 = request.form['haslo_nowe2']
+		dbConnection = dbConnect()
+		dbCursor = dbConnection.cursor()
+		dbCursor.execute("SELECT haslo FROM uzytkownik WHERE id_uzytkownika = {}".format(session['userid']))
+		haslo = dbCursor.fetchall()[0][0]
+		if (haslo_nowe != haslo_nowe2) or (haslo!=hashlib.sha256(haslo_stare.encode('utf-8')).hexdigest()):
+			msg = "Hasła się nie zgadzają"
+		else:
+			if haslo_stare==haslo_nowe:
+				msg="Nie można ustawić hasła na bieżące"
+			else:
+				haslo_zmieniane = hashlib.sha256(haslo_stare.encode('utf-8')).hexdigest()
+				dbCursor.execute("UPDATE uzytkownik SET haslo = '{}' WHERE id_uzytkownika = {}".format(haslo_zmieniane),session['userid'])
+				dbConnection.commit()
+				msg = "Hasło zmienione pomyślnie"
+		dbCursor.close()
+		dbConnection.close()	
+	return render_template("profil.html", haslo_msg=msg)	
 if __name__ == "__main__":
     app.run(debug=True)
 

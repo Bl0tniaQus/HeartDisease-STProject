@@ -7,14 +7,14 @@
 		<div>Profil użytkownika {{session['login']}}</div>
 		<div>
 		
-		Konto założone: {{data_dolaczenia}}	
-		Zapisanych wyników: {{count}}
+		Konto założone: {{session['data_dolaczenia']}}	
+		Zapisanych wyników: {{session['count']}}
 		
 		<table>
 			<tr>
 			
 				<td>
-					<form action = "zmiana_hasla" action="post">
+					<form action = "zmiana_hasla" method="post">
 						<input type="password" name="haslo_stare" />
 						<input type="password" name="haslo_nowe" />
 						<input type="password" name="haslo_nowe2" />
