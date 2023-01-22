@@ -553,11 +553,16 @@ margin-right:auto;
 	text-align:center;
 	padding-top:60px;
 }
-
+.serceglowne{
+		margin-left:120px;float:left;padding:20px;border:2px solid tomato;border-radius:10px;margin-right:20px;margin-bottom:10px;height:70px;
+	}
 
 @media screen and (min-width: 1080px) {
 	body{
 		overflow: hidden;
+	}
+	.serceglowne{
+		margin-left:120px;float:left;padding:20px;border:2px solid tomato;border-radius:10px;margin-right:20px;margin-bottom:0px;height:200px;
 	}
 	
 #z1{
