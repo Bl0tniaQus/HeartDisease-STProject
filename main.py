@@ -104,7 +104,7 @@ def form_extended():
 		dane_pokazowe = [None] * 12
 		err=False
 		msg = ""
-		wynik="Brak"
+		wynik="Nie okkreślono"
 		
 		if request.form['plec'] == "0":
 			plec = "Kobieta"
@@ -223,7 +223,7 @@ def form_simplified():
 		dane = [None]*8
 		err=False
 		msg = ""
-		wynik="Brak"
+		wynik="Nie okkreślono"
 		
 		if request.form['plec'] == "0":
 			plec = "Kobieta"
