@@ -1,0 +1,97 @@
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+<style>
+
+</style>
+</head>
+<body>
+{% block content %}
+<div class="navbar"> 
+	<input type="checkbox" checked="unckecked" />   
+    <span> </span>
+    <span> </span>
+    <span> </span>
+    <ul class="menu_list">
+      <a href="/"><li>Strona glowna</li></a>
+      <a href="/form"><li>Formularz</li></a>
+      <a href="/about"><li>O nas</li></a>
+      {% if session['login'] %}
+	  <a href="/profil" id="logs"><li id="log"><p style="color:tomato;font-family:">{{session['login']}}</p><ul class="submenu">
+	  <a href="/profil" id="profil_przycisk"><li id="wylog">Profil</li></a>
+	  
+	  <a href="/wyniki" id="wyniki_przycisk"><li id="wylog">Wyniki</li></a>
+	   
+	  <a href="/wyloguj" id="wylogujsie_przycisk"><li  style=" color:tomato;"  id="wylog">Wyloguj się</li></a>
+	   
+	  </ul>	</li></a>  
+
+	  {% else %}
+	  <a href="/login"><li id="log">Zaloguj się</li></a>
+	  {% endif %}
+	</ul>
+
+  <img class="logo" src="{{ url_for('static', filename='logo.png') }}" height="40px" style=""/>
+</div>
+<div class="content">
+
+
+<div style="overflow: hidden"><div class="profilname" style="" >Profil użytkownika {{session['login']}}<img src="{{ url_for('static', filename='profil.png') }}" class="iconprofilemobile"/></div></div>
+		<div style="background-color:#121212;clear:both; text-align:center;">
+		
+		<p  class="profil">Konto założone: {{session['data_dolaczenia']}}</p>	<p class="profil">
+		Zapisanych wyników: {{session['count']}}
+		</p>
+		
+		</br>
+		
+		<p class="profilzm" style="padding-bottom:0px;">
+		Zmiana hasła:
+		</p>
+					<form action = "zmiana_hasla" method="post" style="" id="profilform1">
+					<img src="{{ url_for('static', filename='profil.png') }}" class="profilicon"/>
+						<input class="polehasla" type="password" name="haslo_stare" placeholder="Stare hasło" />
+						<input class="polehasla" type="password" name="haslo_nowe" placeholder="Nowe hasło"/>
+						<input class="polehasla" type="password" name="haslo_nowe2" placeholder="Powtórz nowe hasło"/>
+						
+						<button type="submit" class="polehasla" style=" background-color: tomato;"><p style="text-align:center;color:black;font-weight:bold;" >Zmień hasło</p></button>
+						<p class="profilzm">{{haslo_msg}}</p>
+					</form>
+									
+				
+				<form action="usun_konto" method="post" style="" id="profilform2">
+				<button type="button" class="polehasla" id="usunkonto" style="display:block; background-color: tomato;"><p style="text-align:center;color:black;font-weight:bold; ">Usuń konto</p></button>
+				<button type="submit" class="polehasla" id="usunkonto2" style="display:none; background-color: tomato;"><p style="text-align:center;color:black;font-weight:bold; ">Usuń konto</p></button>
+				</form>
+				<p id="potwierdzenie_usuniecia" style="color:tomato;"></p>
+				
+				</div>
+		</div>
+
+
+
+
+<div class="footer">© Copyright by Adrian Hałys &amp Arkadiusz Hanejko</div>
+{% endblock %}
+</body>
+</html>
+<script src="{{ url_for('static', filename='usunkonto.js') }}"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
