@@ -240,7 +240,7 @@ def form_simplified():
 		elif request.form['bol']=="2":
 			bol = "Atypowa angina"
 		elif request.form['bol']=="3":
-			bol = "Ból nieanginowy""
+			bol = "Ból nieanginowy"
 		elif request.form['bol']=="4":
 			bol = "Ból asymptomatyczny"
 			
